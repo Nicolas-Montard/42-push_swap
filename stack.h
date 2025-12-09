@@ -6,7 +6,7 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 12:25:56 by nmontard          #+#    #+#             */
-/*   Updated: 2025/12/09 13:29:11 by nmontard         ###   ########.fr       */
+/*   Updated: 2025/12/09 13:41:18 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,3 +16,7 @@ typedef struct stack
 	int	size;
 	int	*array;
 }		stack;
+
+void	swap(stack *stack);
+
+void	ss(stack *a, stack *b);
