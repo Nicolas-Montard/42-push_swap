@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/09 13:44:33 by nmontard          #+#    #+#             */
-/*   Updated: 2025/12/09 15:54:20 by nmontard         ###   ########.fr       */
+/*   Created: 2025/11/21 12:49:26 by nmontard          #+#    #+#             */
+/*   Updated: 2025/12/09 15:52:05 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-void	pa(t_stack *a, t_stack *b)
-{
-	a->array[a->top + 1] = b->array[b->top];
-	a->top += 1;
-	b->top -= 1;
-}
-
-void	pb(t_stack *b, t_stack *a)
-{
-	b->array[b->top + 1] = a->array[a->top];
-	b->top += 1;
-	a->top -= 1;
-}
+void	ft_putunbr(unsigned int nb, int *char_print);
+void	ft_putstr(char *str, int *char_print);
+void	ft_putnbr(int n, int *char_print);
+void	ft_putchar(char c, int *char_print);
+void	ft_put_hex_nbr(unsigned int n, int is_lc, int *char_print);
+void	ft_put_memory(const void *addr, int *char_print);
+int		ft_printf(const char *str, ...);
+#endif
