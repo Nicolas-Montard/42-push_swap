@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack.h                                            :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/09 12:25:56 by nmontard          #+#    #+#             */
-/*   Updated: 2025/12/09 14:42:48 by nmontard         ###   ########.fr       */
+/*   Created: 2025/12/09 13:44:33 by nmontard          #+#    #+#             */
+/*   Updated: 2025/12/09 14:44:18 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STACK_H
-# define STACK_H
+#include "stack.h"
 
-typedef struct stack
+void	pa(t_stack *a, t_stack *b)
 {
-	int	top;
-	int	size;
-	int	*array;
-}		t_stack;
+	a->array[a->top + 1] = b->array[b->top];
+	a->top += 1;
+	b->top -= 1;
+}
 
-void	swap(t_stack *stack);
-
-void	ss(t_stack *a, t_stack *b);
-
-void	swap(t_stack *stack);
-
-void	ss(t_stack *a, t_stack *b);
-
-#endif
+void	pb(t_stack *b, t_stack *a)
+{
+	b->array[b->top + 1] = a->array[a->top];
+	b->top += 1;
+	a->top -= 1;
+}
