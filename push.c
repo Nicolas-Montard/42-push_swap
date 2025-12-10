@@ -6,7 +6,7 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 13:44:33 by nmontard          #+#    #+#             */
-/*   Updated: 2025/12/10 12:10:44 by nmontard         ###   ########.fr       */
+/*   Updated: 2025/12/10 12:13:50 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,3 +25,5 @@ void	pb(t_stack *b, t_stack *a)
 	b->top += 1;
 	a->top -= 1;
 }
+
+sdadsgdgfwtetw
