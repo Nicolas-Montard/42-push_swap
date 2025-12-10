@@ -6,7 +6,7 @@
 #    By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/05 15:10:14 by nmontard          #+#    #+#              #
-#    Updated: 2025/12/09 16:35:06 by nmontard         ###   ########.fr        #
+#    Updated: 2025/12/10 12:09:18 by nmontard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CFLAGS= -Wall -Wextra -Werror -MMD -MP -I headers
 PRINTF_PATH = ft_printf
 PRINTF_FILES = $(PRINTF_PATH)/ft_printf_helper1.c $(PRINTF_PATH)/ft_printf.c $(PRINTF_PATH)/ft_put_hex_nbr.c \
 $(PRINTF_PATH)/ft_put_memory.c
-CFILES = push.c swap.c $(PRINTF_FILES) main.c
+CFILES = push.c swap.c $(PRINTF_FILES)
 OBJECTS = $(CFILES:.c=.o)
 DEPS  := $(OBJECTS:.o=.d)
 NAME = push_swap
