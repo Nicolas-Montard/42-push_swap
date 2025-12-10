@@ -6,11 +6,11 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 13:44:33 by nmontard          #+#    #+#             */
-/*   Updated: 2025/12/10 12:15:24 by nmontard         ###   ########.fr       */
+/*   Updated: 2025/12/10 12:10:44 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "headers/stack.h"
 
 void	pa(t_stack *a, t_stack *b)
 {
@@ -25,5 +25,3 @@ void	pb(t_stack *b, t_stack *a)
 	b->top += 1;
 	a->top -= 1;
 }
-
-1316578946546
