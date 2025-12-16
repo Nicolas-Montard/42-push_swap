@@ -1,35 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack.h                                            :+:      :+:    :+:   */
+/*   list_utils.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/09 12:25:56 by nmontard          #+#    #+#             */
-/*   Updated: 2025/12/16 15:02:25 by nmontard         ###   ########.fr       */
+/*   Created: 2025/12/16 12:23:33 by nmontard          #+#    #+#             */
+/*   Updated: 2025/12/16 15:34:09 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STACK_H
-# define STACK_H
+#ifndef LIST_UTILS_H
+# define LIST_UTILS_H
 
-typedef struct node
-{
-	int			*value;
-	struct node	*previous;
-	struct node	*next;
-}				t_node;
+# include "stack.h"
 
-typedef struct stack
-{
-	struct node	*head;
-	int			size;
-}				t_stack;
+t_node	*add_node(t_stack *stack, int *value);
 
-void			sa(t_stack *stack);
-
-void			sb(t_stack *stack);
-
-void			ss(t_stack *a, t_stack *b);
+t_node	*get_last_node(t_stack *stack);
 
 #endif
