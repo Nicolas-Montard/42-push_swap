@@ -1,24 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_utils.h                                       :+:      :+:    :+:   */
+/*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/16 12:23:33 by nmontard          #+#    #+#             */
-/*   Updated: 2025/12/18 12:52:13 by nmontard         ###   ########.fr       */
+/*   Created: 2025/12/18 12:03:27 by nmontard          #+#    #+#             */
+/*   Updated: 2025/12/18 12:04:03 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIST_UTILS_H
-# define LIST_UTILS_H
-
-# include "stack.h"
-
-t_node	*add_node(t_stack *stack, int *value);
-
-t_node	*get_last_node(t_stack *stack);
-
-t_node	*add_node_last(t_stack *stack, int *value);
-
-#endif
+int	ft_atoi(const char *nptr);
