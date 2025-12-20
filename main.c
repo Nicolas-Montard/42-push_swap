@@ -6,7 +6,7 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 11:48:11 by nmontard          #+#    #+#             */
-/*   Updated: 2025/12/18 16:08:52 by nmontard         ###   ########.fr       */
+/*   Updated: 2025/12/20 14:22:49 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,38 +36,64 @@ int	has_only_number(char *values[], int start, int argc)
 	return (1);
 }
 
-t_stack	*create_stacks(int *values[], int start, int argc)
+t_stack	*create_stack(char *values[], int start, int argc)
 {
-	t_stack	*stackA;
-	t_stack *stackB;
-	int		value;
-	int		pt_value;
+	t_stack	*stack;
+	int		*value;
 
-	stackB = malloc(sizeof(t_stack));
-	if (stackB == NULL)
+	stack = malloc(sizeof(t_stack));
+	if (stack == NULL)
 		return (NULL);
-	stackA = malloc(sizeof(t_stack));
-	if (stackA == NULL)
+	while (start < argc)
 	{
-		free(stackB);
-		return (NULL);
-	}
-	while (values[start] < argc + start - 1)
-	{
-		if (add_node_last(stack, ft_atoi(values[start])) == NULL)
+		value = malloc(sizeof(int));
+		if (value == NULL)
 		{
 			// TODO create and use clean stack here
-			return (0);
+			return (NULL);
+		}
+		*value = atoi(values[start]);
+		if (add_node_last(stack, value) == NULL)
+		{
+			// TODO create and use clean stack here
+			return (NULL);
 		}
 		start++;
 	}
+	return (stack);
+}
+
+t_stack	*create_empty_stack(int start, int argc)
+{
+	t_stack	*stack;
+	int		*value;
+
+	stack = malloc(sizeof(t_stack));
+	if (stack == NULL)
+		return (NULL);
+	while (start < argc)
+	{
+		if (add_node_last(stack, NULL) == NULL)
+		{
+			// TODO create and use clean stack here
+			return (NULL);
+		}
+		start++;
+	}
+	return (stack);
 }
 
 int	main(int argc, char *argv[])
 {
-	// TODO set start values base on arg
+	int		nb_start_at;
+	t_stack	*stackA;
+	t_stack	*stackB;
+
+	nb_start_at = 1;
+	// TODO set nb_start_at values base on arg
 	// TODO send error message
 	if (!has_only_number(argv, 1, argc))
 		return (0);
-	create_stack(argv, 1, argc);
+	stackA = create_stack(argv, nb_start_at, argc);
+	stackB = create_empty_stack(nb_start_at, argc);
 }

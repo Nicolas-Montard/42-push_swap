@@ -6,28 +6,26 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:18:41 by nmontard          #+#    #+#             */
-/*   Updated: 2025/12/18 14:16:07 by nmontard         ###   ########.fr       */
+/*   Updated: 2025/12/20 13:57:05 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "headers/stack.h"
 #include <stdlib.h>
 
-
 t_node	*get_last_node(t_stack *stack)
 {
 	t_node	*node;
 	t_node	*start_node;
 	int		started;
-	
+
 	started = 0;
 	start_node = stack->head;
 	node = stack->head;
-	while (node != NULL && (start_node != node || started == 0))
+	while (node != NULL)
 	{
-		started = 1;
-		if (node->next == NULL)
-		break ;
+		if (node->next == NULL || node->next == start_node)
+			break ;
 		node = node->next;
 	}
 	return (node);
@@ -62,7 +60,11 @@ t_node	*add_node_last(t_stack *stack, int *value)
 	previous_node = get_last_node(stack);
 	node->previous = previous_node;
 	if (previous_node == NULL)
+	{
+		stack->head = node;
 		return (node);
+	}
 	previous_node->next = node;
+	stack->head->previous = node;
 	return (node);
 }
