@@ -6,7 +6,7 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:23:33 by nmontard          #+#    #+#             */
-/*   Updated: 2025/12/18 12:52:13 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/05 11:42:51 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,7 @@ t_node	*add_node(t_stack *stack, int *value);
 t_node	*get_last_node(t_stack *stack);
 
 t_node	*add_node_last(t_stack *stack, int *value);
+
+t_node	*get_last_assigned_node(t_stack *stack);
 
 #endif

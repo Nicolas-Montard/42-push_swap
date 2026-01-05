@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 14:00:01 by aslimani          #+#    #+#             */
-/*   Updated: 2025/12/15 16:54:19 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/05 11:53:42 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,17 @@
 
 void	rra(t_stack *a)
 {
-	int	first;
-	int	i;
+	t_node	*last_node;
 
-	if (a->size <= 1)
-		return;
-
-	first = a->array[0];
-	i = 0;
-	while (i < a->top)
+	if (a->size < 2)
+		return ;
+	last_node = get_last_assigned_node(a);
+	if (last_node->next->value == NULL)
 	{
-		a->array[i] = a->array[i + 1];	
-		i++;
+		last_node->next->value = a->head->value;
+		a->head->value = NULL;
 	}
-	a->array[a->top] = first;
+	a->head = a->head->next;
 }
 
 void	rrb(t_stack *b)

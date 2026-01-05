@@ -6,8 +6,13 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 12:03:27 by nmontard          #+#    #+#             */
-/*   Updated: 2025/12/18 12:04:03 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/05 11:51:21 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef UTILS_H
+# define UTILS_H
+
 int	ft_atoi(const char *nptr);
+
+#endif

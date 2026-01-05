@@ -6,7 +6,7 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:18:41 by nmontard          #+#    #+#             */
-/*   Updated: 2025/12/20 13:57:05 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/05 11:23:46 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ t_node	*get_last_node(t_stack *stack)
 {
 	t_node	*node;
 	t_node	*start_node;
-	int		started;
 
-	started = 0;
 	start_node = stack->head;
 	node = stack->head;
 	while (node != NULL)
@@ -66,5 +64,21 @@ t_node	*add_node_last(t_stack *stack, int *value)
 	}
 	previous_node->next = node;
 	stack->head->previous = node;
+	return (node);
+}
+
+t_node	*get_last_assigned_node(t_stack *stack)
+{
+	t_node	*node;
+	t_node	*start_node;
+
+	start_node = stack->head;
+	node = stack->head;
+	while (node != NULL)
+	{
+		if (node->next == NULL || node->next == start_node || node->next->value == NULL)
+			break ;
+		node = node->next;
+	}
 	return (node);
 }

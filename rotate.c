@@ -3,84 +3,50 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 13:35:03 by aslimani          #+#    #+#             */
-/*   Updated: 2025/12/15 16:55:17 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/05 11:42:04 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "headers/list_utils.h"
 #include "headers/stack.h"
+#include <stdlib.h>
 
+// innefective, will need to change
 void	ra(t_stack *a)
 {
-    int	last;
-    int	i;
+	t_node	*last_node;
 
-	if (a->size <= 1)
-		return;
-
-	last = a->array[a->top];
-	i = a->top;
-	while (i > 0)
+	if (a->size < 2)
+		return ;
+	last_node = get_last_assigned_node(a);
+	if (last_node->next->value == NULL)
 	{
-		a->array[i] = a->array[i - 1];
-		i--;
+		last_node->next->value = a->head->value;
+		a->head->value = NULL;
 	}
-	a->array[0] = last;
+	a->head = a->head->next;
 }
-void	ra(t_stack *b)
+
+void	rb(t_stack *b)
 {
-    int	last;
-    int	i;
+	t_node	*last_node;
 
-	if (b->size <= 1)
-		return;
-
-	last = b->array[b->top];
-	i = b->top;
-	while (i > 0)
+	if (b->size < 2)
+		return ;
+	last_node = get_last_assigned_node(b);
+	if (last_node->next->value == NULL)
 	{
-		b->array[i] = b->array[i - 1];
-		i--;
+		last_node->next->value = b->head->value;
+		b->head->value = NULL;
 	}
-	b->array[0] = last;
+	b->head = b->head->next;
 }
 
 void	rr(t_stack *a, t_stack *b)
 {
 	ra(a);
 	rb(b);
-}
-
-int	main(void)
-{
-	t_stack *stack1;
-	int		*array1;
-
-	stack1 = malloc(sizeof(t_stack));
-	array1 = malloc(sizeof(int) * 6);
-	stack1->array = array1;
-	stack1->top = 5;
-	stack1->size = 6;
-	stack1->array[0] = 7;
-	stack1->array[1] = 8;
-	stack1->array[2] = 9;
-	stack1->array[3] = 10;
-	stack1->array[4] = 11;
-	stack1->array[5] = 12;
-	__builtin_printf("%d\n", stack1->array[0]);
-	__builtin_printf("%d\n", stack1->array[1]);
-	__builtin_printf("%d\n", stack1->array[2]);
-	__builtin_printf("%d\n", stack1->array[3]);
-	__builtin_printf("%d\n", stack1->array[4]);
-	__builtin_printf("%d\n", stack1->array[5]);
-	ra(stack1);
-	ra(stack1);
-	__builtin_printf("%d\n", stack1->array[0]);
-	__builtin_printf("%d\n", stack1->array[1]);
-	__builtin_printf("%d\n", stack1->array[2]);
-	__builtin_printf("%d\n", stack1->array[3]);
-	__builtin_printf("%d\n", stack1->array[4]);
-	__builtin_printf("%d\n", stack1->array[5]);
 }
