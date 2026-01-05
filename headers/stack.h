@@ -6,7 +6,7 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 12:25:56 by nmontard          #+#    #+#             */
-/*   Updated: 2025/12/16 15:02:25 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/05 12:30:14 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,21 @@ void			sa(t_stack *stack);
 void			sb(t_stack *stack);
 
 void			ss(t_stack *a, t_stack *b);
+
+void			pa(t_stack *a, t_stack *b);
+
+void			pb(t_stack *b, t_stack *a);
+
+void			ra(t_stack *a);
+
+void			rb(t_stack *b);
+
+void			rr(t_stack *a, t_stack *b);
+
+void			rra(t_stack *a);
+
+void			rrb(t_stack *b);
+
+void			rrr(t_stack *a, t_stack *b);
 
 #endif

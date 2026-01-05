@@ -6,7 +6,7 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 13:35:03 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/05 11:42:04 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/05 12:27:29 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "headers/stack.h"
 #include <stdlib.h>
 
-// innefective, will need to change
+// innefective, will potentially need to change
 void	ra(t_stack *a)
 {
 	t_node	*last_node;

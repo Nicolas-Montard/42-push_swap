@@ -6,11 +6,13 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 14:00:01 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/05 11:53:42 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/05 12:24:55 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "headers/list_utils.h"
 #include "headers/stack.h"
+#include <stdlib.h>
 
 void	rra(t_stack *a)
 {
@@ -19,30 +21,27 @@ void	rra(t_stack *a)
 	if (a->size < 2)
 		return ;
 	last_node = get_last_assigned_node(a);
-	if (last_node->next->value == NULL)
+	if (a->head->previous == NULL)
 	{
-		last_node->next->value = a->head->value;
-		a->head->value = NULL;
+		a->head->previous->value = last_node->value;
+		last_node->value = NULL;
 	}
-	a->head = a->head->next;
+	a->head = a->head->previous;
 }
 
 void	rrb(t_stack *b)
 {
-	int	first;
-	int	i;
+	t_node	*last_node;
 
-	if (b->size <= 1)
-		return;
-
-	first = b->array[0];
-	i = 0;
-	while (i < b->top)
+	if (b->size < 2)
+		return ;
+	last_node = get_last_assigned_node(b);
+	if (b->head->previous == NULL)
 	{
-		b->array[i] = b->array[i + 1];	
-		i++;
+		b->head->previous->value = last_node->value;
+		last_node->value = NULL;
 	}
-	b->array[b->top] = first;
+	b->head = b->head->previous;
 }
 
 void	rrr(t_stack *a, t_stack *b)
