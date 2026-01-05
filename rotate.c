@@ -5,11 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/05 10:55:30 by slimani2          #+#    #+#             */
-/*   Updated: 2026/01/06 14:25:41 by nmontard         ###   ########.fr       */
+/*   Created: 2025/12/10 13:35:03 by aslimani          #+#    #+#             */
+/*   Updated: 2026/01/06 15:02:32 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "headers/list_utils.h"
 #include "headers/stack.h"
 #include <stdlib.h>
 
