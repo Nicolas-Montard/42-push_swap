@@ -3,53 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: slimani2 <slimani2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/10 14:00:01 by aslimani          #+#    #+#             */
-/*   Updated: 2025/12/15 16:54:19 by aslimani         ###   ########.fr       */
+/*   Created: 2026/01/05 13:34:58 by slimani2          #+#    #+#             */
+/*   Updated: 2026/01/05 18:48:30 by slimani2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "headers/stack.h"
+#include <stdlib.h>
 
-void	rra(t_stack *a)
+void    rra(t_stack *a)
 {
-	int	first;
-	int	i;
-
-	if (a->size <= 1)
-		return;
-
-	first = a->array[0];
-	i = 0;
-	while (i < a->top)
-	{
-		a->array[i] = a->array[i + 1];	
-		i++;
-	}
-	a->array[a->top] = first;
+    if(a->size > 2)
+        a->head = a->head->previous;
 }
 
-void	rrb(t_stack *b)
+void    rrb(t_stack *b)
 {
-	int	first;
-	int	i;
-
-	if (b->size <= 1)
-		return;
-
-	first = b->array[0];
-	i = 0;
-	while (i < b->top)
-	{
-		b->array[i] = b->array[i + 1];	
-		i++;
-	}
-	b->array[b->top] = first;
+    if(b->size > 2)
+        b->head = b->head->previous;
 }
 
-void	rrr(t_stack *a, t_stack *b)
+void    rrr(t_stack *a, t_stack *b)
 {
-	rra(a);
-	rrb(b);
+    rra(a);
+    rrb(b);
 }
