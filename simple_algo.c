@@ -6,7 +6,7 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 15:00:07 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/06 15:00:15 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/06 15:14:12 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void    selection_sort_adaptation(t_stack *a, t_stack *b)
                 reverse--;
             }
         }
-        pb(a, b);
+        pb(b, a);
     }
     while(b->size > 0)
         pa(a, b);

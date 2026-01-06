@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 11:48:11 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/08 14:54:59 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/12 11:06:33 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "headers/utils.h"
 #include "quick_sort.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 int	has_only_number(char *values[], int start, int argc)
 {
@@ -26,7 +27,7 @@ int	has_only_number(char *values[], int start, int argc)
 		while (values[start][i] != '\0')
 		{
 			if (values[start][i] < '0' || values[start][i] > '9'
-				|| (values[start][i] == '0' && i == 0))
+				|| (values[start][i] == '0' && i+1 == 0 && i == 0))
 			{
 				return (0);
 			}
