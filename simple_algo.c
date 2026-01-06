@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   simple_algo.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slimani2 <slimani2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/05 14:31:36 by slimani2          #+#    #+#             */
-/*   Updated: 2026/01/05 18:48:47 by slimani2         ###   ########.fr       */
+/*   Created: 2026/01/06 15:00:07 by aslimani          #+#    #+#             */
+/*   Updated: 2026/01/06 15:00:15 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+                                  
 #include "headers/stack.h"
 #include <stdlib.h>
 
