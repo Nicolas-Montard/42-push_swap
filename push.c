@@ -3,36 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slimani2 <slimani2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 13:44:33 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/05 14:04:46 by slimani2         ###   ########.fr       */
+/*   Updated: 2026/01/06 13:19:42 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "headers/list_utils.h"
 #include "headers/stack.h"
 #include <stdlib.h>
 
 void	pa(t_stack *a, t_stack *b)
 {
-	if (b->head->value == NULL)
+	if (b->head == NULL)
 		return ;
-	a->head->previous->value = b->head->value;
-	a->head = a->head->previous;
-	b->head->value = NULL;
-	b->head = b->head->next;
-	a->size += 1;
-	b->size -= 1;
+	add_node(a, b->head->value);
+	remove_node(b, b->head);
 }
 
 void	pb(t_stack *b, t_stack *a)
 {
-	if (a->head->value == NULL)
+	if (a->head == NULL)
 		return ;
-	b->head->previous->value = a->head->value;
-	b->head = b->head->previous;
-	a->head->value = NULL;
-	a->head = a->head->next;
-	b->size += 1;
-	a->size -= 1;
+	add_node(b, a->head->value);
+	remove_node(a, a->head);
 }

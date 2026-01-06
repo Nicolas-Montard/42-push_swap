@@ -6,7 +6,7 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 11:48:07 by nmontard          #+#    #+#             */
-/*   Updated: 2025/12/16 15:43:20 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/06 13:19:25 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	sa(t_stack *stack)
 {
-	int	*temp;
+	int	temp;
 
 	if (stack->size < 2)
 		return ;
@@ -25,7 +25,7 @@ void	sa(t_stack *stack)
 
 void	sb(t_stack *stack)
 {
-	int	*temp;
+	int	temp;
 
 	if (stack->size < 2)
 		return ;
