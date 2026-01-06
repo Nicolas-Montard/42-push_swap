@@ -6,7 +6,7 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 12:34:33 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/06 16:28:34 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/06 16:34:22 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void	sort_stack_a(t_stack *stack_a, t_stack *stack_b, int size_a)
 		else
 			ra(stack_a);
 	}
+	// need to look
 	pb(stack_b, stack_a);
 	while (i < size_a)
 		rra(stack_a);
