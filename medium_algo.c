@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*   medium_algo.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: slimani2 <slimani2@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/10 14:00:01 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/06 15:07:58 by nmontard         ###   ########.fr       */
+/*   Created: 2026/01/05 16:01:12 by slimani2          #+#    #+#             */
+/*   Updated: 2026/01/05 18:48:26 by slimani2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "headers/list_utils.h"
 #include "headers/stack.h"
 #include <stdlib.h>
+#include <math.h>
 
-void    rra(t_stack *a)
-{
-    if(a->size > 1)
-        a->head = a->head->previous;
-}
 
-void    rrb(t_stack *b)
+void    chunk_based_sorting(t_stack *a, t_stack *b)
 {
-    if(b->size > 1)
-        b->head = b->head->previous;
-}
+    int n;
+    int chunk_size;
 
-void    rrr(t_stack *a, t_stack *b)
-{
-    rra(a);
-    rrb(b);
+    n = a->size;
+    chunk_size = sqrt(n);
 }

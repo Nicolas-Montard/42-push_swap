@@ -6,7 +6,7 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 13:35:03 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/05 12:27:29 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/06 15:08:07 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,39 +14,19 @@
 #include "headers/stack.h"
 #include <stdlib.h>
 
-// innefective, will potentially need to change
-void	ra(t_stack *a)
+void    ra(t_stack *a)
 {
-	t_node	*last_node;
-
-	if (a->size < 2)
-		return ;
-	last_node = get_last_assigned_node(a);
-	if (last_node->next->value == NULL)
-	{
-		last_node->next->value = a->head->value;
-		a->head->value = NULL;
-	}
-	a->head = a->head->next;
+    if(a->size > 1)
+        a->head = a->head->next;
+}
+void    rb(t_stack *b)
+{
+    if(b->size > 1)
+        b->head = b->head->next;
 }
 
-void	rb(t_stack *b)
+void    rr(t_stack *a, t_stack *b)
 {
-	t_node	*last_node;
-
-	if (b->size < 2)
-		return ;
-	last_node = get_last_assigned_node(b);
-	if (last_node->next->value == NULL)
-	{
-		last_node->next->value = b->head->value;
-		b->head->value = NULL;
-	}
-	b->head = b->head->next;
-}
-
-void	rr(t_stack *a, t_stack *b)
-{
-	ra(a);
-	rb(b);
+    ra(a);
+    rb(b);
 }
