@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slimani2 <slimani2@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 13:34:58 by slimani2          #+#    #+#             */
-/*   Updated: 2026/01/05 18:48:30 by slimani2         ###   ########.fr       */
+/*   Updated: 2026/01/06 14:25:56 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 
 void    rra(t_stack *a)
 {
-    if(a->size > 2)
+    if(a->size > 1)
         a->head = a->head->previous;
 }
 
 void    rrb(t_stack *b)
 {
-    if(b->size > 2)
+    if(b->size > 1)
         b->head = b->head->previous;
 }
 
