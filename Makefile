@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+         #
+#    By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/05 15:10:14 by nmontard          #+#    #+#              #
-#    Updated: 2026/01/08 11:39:08 by nmontard         ###   ########.fr        #
+#    Updated: 2026/01/12 10:58:06 by aslimani         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
