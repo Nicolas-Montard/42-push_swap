@@ -6,7 +6,7 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 11:48:11 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/12 11:06:33 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/12 11:08:31 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "headers/stack.h"
 #include "headers/utils.h"
 #include "quick_sort.h"
+#include "headers/medium.h"
 #include <stdlib.h>
 #include <stdio.h>
 

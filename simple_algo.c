@@ -6,7 +6,7 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 15:00:07 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/06 15:14:12 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/07 14:39:57 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static  int    find_min_node(t_stack *a)
     return(min_index);
 }
 
-void    selection_sort_adaptation(t_stack *a, t_stack *b)
+void    selection_sort(t_stack *a, t_stack *b)
 {
     int     index_i;
     int     index_min;
