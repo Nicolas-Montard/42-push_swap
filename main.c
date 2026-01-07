@@ -6,13 +6,14 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 11:48:11 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/06 14:32:40 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/08 14:54:59 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "headers/list_utils.h"
 #include "headers/stack.h"
 #include "headers/utils.h"
+#include "quick_sort.h"
 #include <stdlib.h>
 
 int	has_only_number(char *values[], int start, int argc)
@@ -64,6 +65,8 @@ int	main(int argc, char *argv[])
 	int		end_at;
 	t_stack	*stackA;
 	t_stack	*stackB;
+	t_node	*start_node;
+	t_node	*actual_node;
 
 	end_at = 1;
 	// TODO set end_at values base on arg
@@ -84,5 +87,14 @@ int	main(int argc, char *argv[])
 		// TODO free both stack
 		// TODO send error message
 		return (0);
+	}
+	quick_sort(stackA, stackB);
+	start_node = stackA->head;
+	actual_node = start_node->next;
+	__builtin_printf("%d\n", start_node->value);
+	while (actual_node != start_node)
+	{
+		__builtin_printf("%d\n", actual_node->value);
+		actual_node = actual_node->next;
 	}
 }

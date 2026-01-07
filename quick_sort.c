@@ -6,12 +6,17 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 12:34:33 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/06 16:34:22 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/08 14:56:35 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "headers/quick_sort.h"
 #include "headers/stack.h"
 #include <stdlib.h>
+
+static void	sort_stack_a(t_stack *stack_a, t_stack *stack_b, int size_a);
+
+static void	sort_stack_b(t_stack *stack_a, t_stack *stack_b, int size_b);
 
 static int	get_pivot_from_partition(t_stack *stack, int size)
 {
@@ -28,7 +33,7 @@ static int	get_pivot_from_partition(t_stack *stack, int size)
 	return (current_node->value);
 }
 
-void	sort_stack_a(t_stack *stack_a, t_stack *stack_b, int size_a)
+static void	sort_stack_a(t_stack *stack_a, t_stack *stack_b, int size_a)
 {
 	int	pivot;
 	int	i;
@@ -36,13 +41,15 @@ void	sort_stack_a(t_stack *stack_a, t_stack *stack_b, int size_a)
 
 	size_b = 0;
 	i = 0;
-	// number need to be tested to adjust them
-	if (size_a < 20)
+	if (size_a < 2)
+		return ;
+	if (size_a < 5)
 	{
-		// call a function to sort small array
+		selection_sort_partition(stack_a, stack_b, size_a);
 		return ;
 	}
 	pivot = get_pivot_from_partition(stack_a, size_a);
+	__builtin_printf("pivot A :%d\n\n", pivot);
 	while (stack_a->head->value != pivot)
 	{
 		if (stack_a->head->value < pivot)
@@ -54,15 +61,19 @@ void	sort_stack_a(t_stack *stack_a, t_stack *stack_b, int size_a)
 		else
 			ra(stack_a);
 	}
-	// need to look
 	pb(stack_b, stack_a);
+	size_a--;
 	while (i < size_a)
+	{
 		rra(stack_a);
+		i++;
+	}
 	sort_stack_a(stack_a, stack_b, size_a);
+	pa(stack_a, stack_b);
 	sort_stack_b(stack_a, stack_b, size_b);
 }
 
-sort_stack_b(t_stack *stack_a, t_stack *stack_b, int size_b)
+static void	sort_stack_b(t_stack *stack_a, t_stack *stack_b, int size_b)
 {
 	int	pivot;
 	int	i;
@@ -70,17 +81,18 @@ sort_stack_b(t_stack *stack_a, t_stack *stack_b, int size_b)
 
 	size_a = 0;
 	i = 0;
-	pa(stack_a, stack_b);
-	// number need to be tested to adjust them
-	if (size_b < 20)
+	if (size_b < 1)
+		return ;
+	if (size_b < 5)
 	{
-		// call a function to sort small array and push or just push
+		selection_sort_partition_one_way(stack_a, stack_b, size_b);
 		return ;
 	}
 	pivot = get_pivot_from_partition(stack_b, size_b);
+	__builtin_printf("pivot B :%d\n", pivot);
 	while (stack_b->head->value != pivot)
 	{
-		if (stack_b->head->value < pivot)
+		if (stack_b->head->value > pivot)
 		{
 			pa(stack_a, stack_b);
 			size_a++;
@@ -89,32 +101,33 @@ sort_stack_b(t_stack *stack_a, t_stack *stack_b, int size_b)
 		else
 			rb(stack_b);
 	}
-	pa(stack_b, stack_a);
-	while (i < size_b)
-		rrb(stack_b);
 	sort_stack_a(stack_a, stack_b, size_a);
+	pa(stack_a, stack_b);
+	size_b--;
+	while (i < size_b)
+	{
+		rrb(stack_b);
+		i++;
+	}
 	sort_stack_b(stack_a, stack_b, size_b);
 }
 
+// TODO add securisation
 void	quick_sort(t_stack *stack_a, t_stack *stack_b)
 {
-	t_node	*start_node;
-	int		pivot;
-	int		size_b;
+	int	pivot;
 
-	size_b = 0;
-	pivot = start_node->previous;
+	pivot = stack_a->head->previous->value;
+	__builtin_printf("pivot A originel :%d\n\n", pivot);
 	while (stack_a->head->value != pivot)
 	{
 		if (stack_a->head->value < pivot)
-		{
-			size_b++;
 			pb(stack_b, stack_a);
-		}
 		else
 			ra(stack_a);
 	}
 	pb(stack_b, stack_a);
-	// call left function
-	// call right function
+	sort_stack_a(stack_a, stack_b, stack_a->size);
+	pa(stack_a, stack_b);
+	sort_stack_b(stack_a, stack_b, stack_b->size);
 }
