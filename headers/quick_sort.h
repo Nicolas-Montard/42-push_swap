@@ -6,7 +6,7 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 15:13:44 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/07 15:29:24 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/08 16:50:47 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 # include "stack.h"
 
-void	selection_sort_partition(t_stack *a, t_stack *b, int size_a);
+int	selection_sort_partition(t_stack *a, t_stack *b, int size_a);
 
-void	selection_sort_partition_one_way(t_stack *a, t_stack *b, int size_b);
+int	selection_sort_partition_one_way(t_stack *a, t_stack *b, int size_b);
 
-void	quick_sort(t_stack *stack_a, t_stack *stack_b);
+int	quick_sort(t_stack *stack_a, t_stack *stack_b);
 
 #endif

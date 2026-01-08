@@ -6,7 +6,7 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 12:18:41 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/06 15:07:26 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/08 15:36:41 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,5 @@ void	remove_node(t_stack *stack, t_node *node)
 		node->next = NULL;
 	stack->head = node->next;
 	stack->size -= 1;
+	free(node);
 }
