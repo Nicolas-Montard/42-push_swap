@@ -6,7 +6,7 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 12:34:33 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/08 16:53:23 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/08 16:54:14 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,7 @@ static int	sort_stack_b(t_stack *stack_a, t_stack *stack_b, int size_b)
 }
 
 // TODO add securisation
-void	quick_sort(t_stack *stack_a, t_stack *stack_b)
+int	quick_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	int	pivot;
 
