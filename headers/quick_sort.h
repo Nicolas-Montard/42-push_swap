@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*   quick_sort.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/10 14:00:01 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/06 15:07:58 by nmontard         ###   ########.fr       */
+/*   Created: 2026/01/07 15:13:44 by nmontard          #+#    #+#             */
+/*   Updated: 2026/01/07 15:29:24 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "headers/list_utils.h"
-#include "headers/stack.h"
-#include <stdlib.h>
+#ifndef QUICK_SORT_H
+# define QUICK_SORT_H
 
-void    rra(t_stack *a)
-{
-    if(a->size > 1)
-        a->head = a->head->previous;
-}
+# include "stack.h"
 
-void    rrb(t_stack *b)
-{
-    if(b->size > 1)
-        b->head = b->head->previous;
-}
+void	selection_sort_partition(t_stack *a, t_stack *b, int size_a);
 
-void    rrr(t_stack *a, t_stack *b)
-{
-    rra(a);
-    rrb(b);
-}
+void	selection_sort_partition_one_way(t_stack *a, t_stack *b, int size_b);
+
+void	quick_sort(t_stack *stack_a, t_stack *stack_b);
+
+#endif

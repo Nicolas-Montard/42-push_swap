@@ -6,30 +6,33 @@
 #    By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/05 15:10:14 by nmontard          #+#    #+#              #
-#    Updated: 2025/12/10 12:09:18 by nmontard         ###   ########.fr        #
+#    Updated: 2026/01/08 11:39:08 by nmontard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC= cc
-CFLAGS= -Wall -Wextra -Werror -MMD -MP -I headers
+CFLAGS= -Wall -Wextra -Werror -MMD -MP -I headers -g
 PRINTF_PATH = ft_printf
+DIR_TO_CREATE = obj_and_dep_dir obj_and_dep_dir/$(PRINTF_PATH)
 PRINTF_FILES = $(PRINTF_PATH)/ft_printf_helper1.c $(PRINTF_PATH)/ft_printf.c $(PRINTF_PATH)/ft_put_hex_nbr.c \
 $(PRINTF_PATH)/ft_put_memory.c
-CFILES = push.c swap.c $(PRINTF_FILES)
-OBJECTS = $(CFILES:.c=.o)
-DEPS  := $(OBJECTS:.o=.d)
+CFILES = push.c swap.c list_utils.c main.c quick_sort.c reverse_rotate.c rotate.c swap.c $(PRINTF_FILES) \
+selection_sort_partition.c selection_sort_partition_one_way.c
+OBJECTS = $(addprefix obj_and_dep_dir/, $(CFILES:.c=.o))
+DEPS = $(addprefix obj_and_dep_dir/, $(CFILES:.c=.d))
 NAME = push_swap
 
 all: $(NAME)
 
-$(NAME) : $(OBJECTS) 
+$(NAME) : $(OBJECTS)
 	$(CC) $^ -o $@ 
 
-%.o: %.c 
+obj_and_dep_dir/%.o: %.c
+	mkdir -p $(DIR_TO_CREATE)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJECTS) $(DEPS)
+	rm -rf $(DIR_TO_CREATE)
 
 fclean: clean
 	rm -f $(NAME)
