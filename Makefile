@@ -6,11 +6,7 @@
 #    By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/05 15:10:14 by nmontard          #+#    #+#              #
-<<<<<<< HEAD
-#    Updated: 2026/01/12 10:58:06 by aslimani         ###   ########.fr        #
-=======
-#    Updated: 2026/01/06 12:18:55 by aslimani         ###   ########.fr        #
->>>>>>> 03497b2 (merge solved)
+#    Updated: 2026/01/12 11:10:10 by aslimani         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,13 +24,8 @@ NAME = push_swap
 
 all: $(NAME)
 
-<<<<<<< HEAD
 $(NAME) : $(OBJECTS)
 	$(CC) $^ -o $@ 
-=======
-$(NAME) : $(OBJECTS) 
-	$(CC) $^ -o $@
->>>>>>> 03497b2 (merge solved)
 
 obj_and_dep_dir/%.o: %.c
 	mkdir -p $(DIR_TO_CREATE)
