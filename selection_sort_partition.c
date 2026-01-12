@@ -6,7 +6,7 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 14:43:58 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/12 12:48:03 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/12 14:47:52 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,26 +37,40 @@ static int	find_min_node(t_stack *a, int size)
 	return (min_index);
 }
 
-int	selection_sort_partition(t_stack *a, t_stack *b, int size_a)
+static int	sort_to_b(t_stack *a, t_stack *b, int size_a, int *size_b)
 {
 	int	index_i;
 	int	index_min;
+
+	index_i = 0;
+	while (size_a > 0)
+	{
+		index_min = find_min_node(a, size_a);
+		while (index_i < index_min)
+		{
+			ra(a);
+			index_i++;
+		}
+		while (index_i > index_min)
+		{
+			rra(a);
+			index_i--;
+		}
+		if (!pb(b, a))
+			return (0);
+		size_a--;
+		*size_b += 1;
+	}
+	return (1);
+}
+
+int	selection_sort_partition(t_stack *a, t_stack *b, int size_a)
+{
 	int	size_b;
 
 	size_b = 0;
-	while (size_a > 0) // while a is not empty
-	{
-		index_i = 0;
-		index_min = find_min_node(a, size_a);
-		while (index_i++ < index_min)
-			ra(a);
-		size_a--;
-		size_b++;
-		if (!pb(b, a))
-			return (0);
-		while (index_i-- > 0)
-			rra(a);
-	}
+	if (!sort_to_b(a, b, size_a, &size_b))
+		return (0);
 	while (size_b > 0)
 	{
 		if (!pa(a, b))
