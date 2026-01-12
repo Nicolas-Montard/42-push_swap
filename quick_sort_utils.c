@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   quick_sort_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/09 13:44:33 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/08 15:54:31 by nmontard         ###   ########.fr       */
+/*   Created: 2026/01/12 12:50:11 by nmontard          #+#    #+#             */
+/*   Updated: 2026/01/12 12:50:38 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "headers/list_utils.h"
+#include "headers/quick_sort.h"
 #include "headers/stack.h"
-#include <stdlib.h>
 
-int	pa(t_stack *a, t_stack *b)
+int	get_pivot_from_partition(t_stack *stack, int size)
 {
-	if (b->head == NULL)
-		return (1);
-	if (!add_node(a, b->head->value))
-		return (0);
-	remove_node(b, b->head);
-	return (1);
-}
+	t_node	*current_node;
+	int		counter;
 
-int	pb(t_stack *b, t_stack *a)
-{
-	if (a->head == NULL)
-		return (1);
-	if (!add_node(b, a->head->value))
-		return (0);
-	remove_node(a, a->head);
-	return (1);
+	counter = 1;
+	current_node = stack->head;
+	while (counter < size)
+	{
+		current_node = current_node->next;
+		counter++;
+	}
+	return (current_node->value);
 }

@@ -6,7 +6,7 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 14:43:58 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/08 12:31:42 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/12 12:48:03 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static int	find_min_node(t_stack *a, int size)
 	return (min_index);
 }
 
-void	selection_sort_partition(t_stack *a, t_stack *b, int size_a)
+int	selection_sort_partition(t_stack *a, t_stack *b, int size_a)
 {
 	int	index_i;
 	int	index_min;
@@ -48,23 +48,20 @@ void	selection_sort_partition(t_stack *a, t_stack *b, int size_a)
 	{
 		index_i = 0;
 		index_min = find_min_node(a, size_a);
-		while (index_i < index_min)
-		{
+		while (index_i++ < index_min)
 			ra(a);
-			index_i++;
-		}
 		size_a--;
 		size_b++;
-		pb(b, a);
-		while (index_i > 0)
-		{
+		if (!pb(b, a))
+			return (0);
+		while (index_i-- > 0)
 			rra(a);
-			index_i--;
-		}
 	}
 	while (size_b > 0)
 	{
-		pa(a, b);
+		if (!pa(a, b))
+			return (0);
 		size_b--;
 	}
+	return (1);
 }

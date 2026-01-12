@@ -6,7 +6,7 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 15:07:48 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/08 12:49:40 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/08 16:42:31 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ static int	find_max_node(t_stack *b, int size)
 	return (max_index);
 }
 
-void	selection_sort_partition_one_way(t_stack *a, t_stack *b, int size_b)
+int	selection_sort_partition_one_way(t_stack *a, t_stack *b, int size_b)
 {
-	int index_i;
-	int index_max;
+	int	index_i;
+	int	index_max;
 
 	while (size_b > 0) // while a is not empty
 	{
@@ -52,11 +52,13 @@ void	selection_sort_partition_one_way(t_stack *a, t_stack *b, int size_b)
 			index_i++;
 		}
 		size_b--;
-		pa(a, b);
+		if (!pa(a, b))
+			return (0);
 		while (index_i > 0)
 		{
 			rrb(b);
 			index_i--;
 		}
 	}
+	return (1);
 }
