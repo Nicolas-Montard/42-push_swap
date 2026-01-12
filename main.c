@@ -6,7 +6,7 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 11:48:11 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/12 11:08:31 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/12 11:27:44 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int	main(int argc, char *argv[])
 		// TODO send error message
 		return (0);
 	}
-	quick_sort(stackA, stackB);
+	medium_sort(stackA, stackB);
 	start_node = stackA->head;
 	actual_node = start_node->next;
 	__builtin_printf("%d\n", start_node->value);

@@ -6,7 +6,7 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 12:25:56 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/12 11:07:46 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/12 14:31:02 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct node
 typedef struct stack
 {
 	struct node	*head;
+	int			index;
 	int			size;
 }				t_stack;
 

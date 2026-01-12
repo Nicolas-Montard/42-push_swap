@@ -6,7 +6,7 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 15:01:05 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/09 11:44:01 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/12 14:51:46 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "headers/medium.h"
 
 ////allows you to normalize the values ​​so they can be compared to the chunks
-void	normalize_stack_a(t_stack *a)
+static	void	normalize_stack_a(t_stack *a)
 {
 	t_node	*i;
 	t_node	*j;
@@ -37,33 +37,38 @@ void	normalize_stack_a(t_stack *a)
 			j = j->next;
 			index_j++;
 		}
-		i->value = rank;
+		a->index = rank;
 		i = i->next;
 		index_i++;
 	}
 }
 //calculate the square root of n elements
 
-int	count_chunk_size(t_stack *a)
+static	int	count_chunk_size(t_stack *a)
 {
 	int		chunk_size;
+	int		number;
 
+	number = 1;
 	chunk_size = 0;
-	while (chunk_size * chunk_size < a->size)
+	while (number * number < a->size)
+	{
+		number++;
 		chunk_size++;
+	}
 	return (chunk_size);
 }
 //checks if a value belongs to the chunk
 
-int	is_in_chunk(int value, int min, int max)
+static	int	is_in_chunk(int index, int min, int max)
 {
-	if (value >= min && value <= max)
+	if (index >= min && index <= max)
 		return (1);
 	return (0);
 }
 //check if there are any chunk values ​​left in A
 
-int	still_in_a(t_stack *a, int min, int max)
+static	int	still_in_a(t_stack *a, int min, int max)
 {
 	t_node	*i;
 	int		index_i;
@@ -72,7 +77,7 @@ int	still_in_a(t_stack *a, int min, int max)
 	index_i = 0;
 	while (index_i < a->size)
 	{
-		if (is_in_chunk(i->value, min, max))
+		if (is_in_chunk(a->index, min, max))
 			return (1);
 		i = i->next;
 		index_i++;
@@ -81,21 +86,21 @@ int	still_in_a(t_stack *a, int min, int max)
 }
 //pushes all chunk values ​​into b
 
-void	push_to_stack_b(t_stack *a, t_stack *b, int min, int max)
+static	void	push_to_stack_b(t_stack *a, t_stack *b, int min, int max)
 {
 	t_node	*i;
 	int		index;
 	int		index_chunk;
 	int		l;
 
-	while (stil_in_stack_a(a, min, max))
+	while (still_in_a(a, min, max))
 	{
 		i = a->head;
 		index = 0;
 		index_chunk = -1;
 		while (index < a->size)
 		{
-			if (is_in_chunk(i->value, min, max))
+			if (is_in_chunk(a->index, min, max))
 			{
 				index_chunk = index;
 				break ;
@@ -128,7 +133,7 @@ void	push_to_stack_b(t_stack *a, t_stack *b, int min, int max)
 }
 //finds the maximum node of the stack
 
-int	find_max_node(t_stack *b)
+static	int	find_max_node(t_stack *b)
 {
 	t_node	*i;
 	t_node	*max_node;
@@ -152,7 +157,7 @@ int	find_max_node(t_stack *b)
 	return (max_index);
 }
 
-void	push_stackb_to_a(t_stack *a, t_stack *b)
+static	void	push_stackb_to_a(t_stack *a, t_stack *b)
 {
 	int		index;
 	int		index_max;
@@ -190,6 +195,7 @@ void	medium_sort(t_stack *a, t_stack *b)
 	int	chunk_size;
 	int	current_chunk;
 	int	total_chunk;
+	int	size_a = a->size;
 
 	current_chunk = 0;
 	normalize_stack_a(a);
@@ -201,8 +207,8 @@ void	medium_sort(t_stack *a, t_stack *b)
 	{
 		min = current_chunk * chunk_size;
 		max = min + chunk_size - 1;
-		if (max >= a->size)
-			max = a->size - 1;
+		if (max >= size_a)
+			max = size_a - 1;
 		push_to_stack_b(a, b, min, max);
 		current_chunk++;
 	}
