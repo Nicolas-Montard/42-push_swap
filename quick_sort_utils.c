@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   quick_sort.h                                       :+:      :+:    :+:   */
+/*   quick_sort_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/07 15:13:44 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/12 12:51:33 by nmontard         ###   ########.fr       */
+/*   Created: 2026/01/12 12:50:11 by nmontard          #+#    #+#             */
+/*   Updated: 2026/01/12 12:50:38 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef QUICK_SORT_H
-# define QUICK_SORT_H
+#include "headers/quick_sort.h"
+#include "headers/stack.h"
 
-# include "stack.h"
+int	get_pivot_from_partition(t_stack *stack, int size)
+{
+	t_node	*current_node;
+	int		counter;
 
-int	selection_sort_partition(t_stack *a, t_stack *b, int size_a);
-
-int	selection_sort_partition_one_way(t_stack *a, t_stack *b, int size_b);
-
-int	quick_sort(t_stack *stack_a, t_stack *stack_b);
-
-int	get_pivot_from_partition(t_stack *stack, int size);
-#endif
+	counter = 1;
+	current_node = stack->head;
+	while (counter < size)
+	{
+		current_node = current_node->next;
+		counter++;
+	}
+	return (current_node->value);
+}

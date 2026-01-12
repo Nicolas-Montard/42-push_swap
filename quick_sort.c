@@ -6,7 +6,7 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 12:34:33 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/08 16:54:14 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/12 12:50:05 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,6 @@
 static int	sort_stack_a(t_stack *stack_a, t_stack *stack_b, int size_a);
 
 static int	sort_stack_b(t_stack *stack_a, t_stack *stack_b, int size_b);
-
-static int	get_pivot_from_partition(t_stack *stack, int size)
-{
-	t_node	*current_node;
-	int		counter;
-
-	counter = 1;
-	current_node = stack->head;
-	while (counter < size)
-	{
-		current_node = current_node->next;
-		counter++;
-	}
-	return (current_node->value);
-}
 
 int	split_a_to_b(t_stack *a, t_stack *b, int *size_a, int *size_b)
 {
@@ -46,16 +31,16 @@ int	split_a_to_b(t_stack *a, t_stack *b, int *size_a, int *size_b)
 		{
 			if (!pb(b, a))
 				return (0);
-			*size_b++;
-			*size_a--;
+			*size_b += 1;
+			*size_a -= 1;
 		}
 		else
 			ra(a);
 	}
 	if (!pb(b, a))
 		return (0);
-	*size_a--;
-	while (i++ < size_a)
+	*size_a -= 1;
+	while (i++ < *size_a)
 		rra(a);
 	return (1);
 }
@@ -73,8 +58,8 @@ int	split_b_to_a(t_stack *a, t_stack *b, int *size_a, int *size_b)
 		{
 			if (!pa(a, b))
 				return (0);
-			*size_a++;
-			*size_b--;
+			*size_a += 1;
+			*size_b -= 1;
 		}
 		else
 			rb(b);
@@ -84,12 +69,11 @@ int	split_b_to_a(t_stack *a, t_stack *b, int *size_a, int *size_b)
 
 static int	sort_stack_a(t_stack *stack_a, t_stack *stack_b, int size_a)
 {
-	int	pivot;
 	int	size_b;
 
 	size_b = 0;
 	if (size_a < 2)
-		return ;
+		return (1);
 	if (size_a < 10)
 		return (selection_sort_partition(stack_a, stack_b, size_a));
 	if (!split_a_to_b(stack_a, stack_b, &size_a, &size_b))
@@ -105,14 +89,13 @@ static int	sort_stack_a(t_stack *stack_a, t_stack *stack_b, int size_a)
 
 static int	sort_stack_b(t_stack *stack_a, t_stack *stack_b, int size_b)
 {
-	int	pivot;
 	int	i;
 	int	size_a;
 
 	size_a = 0;
 	i = 0;
 	if (size_b < 1)
-		return ;
+		return (1);
 	if (size_b < 15)
 		return (selection_sort_partition_one_way(stack_a, stack_b, size_b));
 	if (!split_b_to_a(stack_a, stack_b, &size_a, &size_b))
@@ -129,7 +112,6 @@ static int	sort_stack_b(t_stack *stack_a, t_stack *stack_b, int size_b)
 	return (1);
 }
 
-// TODO add securisation
 int	quick_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	int	pivot;

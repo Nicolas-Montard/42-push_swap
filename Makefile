@@ -6,7 +6,7 @@
 #    By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/05 15:10:14 by nmontard          #+#    #+#              #
-#    Updated: 2026/01/08 11:39:08 by nmontard         ###   ########.fr        #
+#    Updated: 2026/01/12 12:53:22 by nmontard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ DIR_TO_CREATE = obj_and_dep_dir obj_and_dep_dir/$(PRINTF_PATH)
 PRINTF_FILES = $(PRINTF_PATH)/ft_printf_helper1.c $(PRINTF_PATH)/ft_printf.c $(PRINTF_PATH)/ft_put_hex_nbr.c \
 $(PRINTF_PATH)/ft_put_memory.c
 CFILES = push.c swap.c list_utils.c main.c quick_sort.c reverse_rotate.c rotate.c swap.c $(PRINTF_FILES) \
-selection_sort_partition.c selection_sort_partition_one_way.c
+selection_sort_partition.c selection_sort_partition_one_way.c quick_sort_utils.c
 OBJECTS = $(addprefix obj_and_dep_dir/, $(CFILES:.c=.o))
 DEPS = $(addprefix obj_and_dep_dir/, $(CFILES:.c=.d))
 NAME = push_swap
