@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 13:35:03 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/13 11:09:29 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/13 17:00:15 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	ra(t_stack *a)
 		a->head = a->head->next;
 	ft_printf("ra\n");
 }
+
 void	rb(t_stack *b)
 {
 	if (b->size > 1)
@@ -32,5 +33,5 @@ void	rr(t_stack *a, t_stack *b)
 {
 	ra(a);
 	rb(b);
-	ft_printf("rr\n");
+	//ft_printf("rr\n");
 }

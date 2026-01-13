@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 13:44:33 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/13 11:11:48 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/13 17:00:10 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "headers/ft_printf.h"
 #include "headers/list_utils.h"
 #include "headers/stack.h"
+#include "headers/ft_printf.h"
 #include <stdlib.h>
 
 int	pa(t_stack *a, t_stack *b)

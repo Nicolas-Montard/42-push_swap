@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 14:00:01 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/13 11:11:04 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/13 17:00:12 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "headers/list_utils.h"
 #include "headers/stack.h"
 #include "headers/ft_printf.h"
 #include <stdlib.h>
+#include "headers/ft_printf.h"
 
 void	rra(t_stack *a)
 {
@@ -33,5 +33,5 @@ void	rrr(t_stack *a, t_stack *b)
 {
 	rra(a);
 	rrb(b);
-	ft_printf("rrr\n");
+	//ft_printf("rrr\n");
 }

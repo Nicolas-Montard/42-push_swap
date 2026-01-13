@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 11:48:07 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/13 11:09:05 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/13 17:00:48 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,5 @@ void	ss(t_stack *a, t_stack *b)
 {
 	sa(a);
 	sb(b);
-	ft_printf("ss\n");
+	//ft_printf("ss\n");
 }
