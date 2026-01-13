@@ -6,10 +6,11 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 13:44:33 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/13 16:44:22 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/13 16:47:52 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "headers/ft_printf.h"
 #include "headers/list_utils.h"
 #include "headers/stack.h"
 #include "headers/ft_printf.h"

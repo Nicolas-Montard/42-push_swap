@@ -6,11 +6,12 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 15:02:03 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/13 15:05:36 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/13 16:48:07 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "headers/stack.h"
+#include "headers/ft_printf.h"
 #include <stdlib.h>
 #include "headers/ft_printf.h"
 
