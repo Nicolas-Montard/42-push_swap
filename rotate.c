@@ -6,7 +6,7 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 15:00:27 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/12 15:15:21 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/13 12:16:08 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,5 @@ void	rr(t_stack *a, t_stack *b)
 {
 	ra(a);
 	rb(b);
-	ft_printf("rr\n");
+	//ft_printf("rr\n");
 }

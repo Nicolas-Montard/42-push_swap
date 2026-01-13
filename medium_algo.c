@@ -6,7 +6,7 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 15:01:05 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/12 15:47:07 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/13 12:14:42 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ static	void	normalize_stack_a(t_stack *a)
 	int		rank;
 
 	i = a->head;
-	j = a->head;
 	index_i = 0;
 	while (index_i < a->size)
 	{
+		j = a->head;
 		index_j = 0;
 		rank = 0;
 		while (index_j < a->size)
@@ -37,7 +37,7 @@ static	void	normalize_stack_a(t_stack *a)
 			j = j->next;
 			index_j++;
 		}
-		a->index = rank;
+		i->index = rank;
 		i = i->next;
 		index_i++;
 	}
@@ -77,7 +77,7 @@ static	int	still_in_a(t_stack *a, int min, int max)
 	index_i = 0;
 	while (index_i < a->size)
 	{
-		if (is_in_chunk(a->index, min, max))
+		if (is_in_chunk(i->index, min, max))
 			return (1);
 		i = i->next;
 		index_i++;
@@ -100,7 +100,7 @@ static	void	push_to_stack_b(t_stack *a, t_stack *b, int min, int max)
 		index_chunk = -1;
 		while (index < a->size)
 		{
-			if (is_in_chunk(a->index, min, max))
+			if (is_in_chunk(i->index, min, max))
 			{
 				index_chunk = index;
 				break ;
