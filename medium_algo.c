@@ -6,7 +6,7 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 15:01:05 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/13 16:58:27 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/13 16:59:50 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "headers/medium.h"
 
 ////allows you to normalize the values ​​so they can be compared to the chunks
+
 static	void	normalize_stack_a(t_stack *a)
 {
 	t_node	*i;
@@ -108,7 +109,6 @@ void	medium_sort(t_stack *a, t_stack *b)
 {
 	int	chunk_size;
 	int	total_chunk;
-	int	size_a = a->size;
 
 	normalize_stack_a(a);
 	chunk_size = count_chunk_size(a);
