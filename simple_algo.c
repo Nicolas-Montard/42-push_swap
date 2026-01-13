@@ -6,12 +6,36 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 15:00:07 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/09 11:33:11 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/13 16:06:20 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "headers/stack.h"
 #include <stdlib.h>
+
+static	void	loop_rotate(t_stack *stack, int index)
+{
+	int	r;
+
+	r = 0;
+	while (r < index)
+	{
+		ra(stack);
+		r++;
+	}
+}
+
+static	void	loop_reverse_rotate(t_stack *stack, int index)
+{
+	int	rev;
+
+	rev = 0;
+	while (rev < stack->size - index)
+	{
+		rra(stack);
+		rev++;
+	}
+}
 
 static	int	find_min_node(t_stack *a)
 {
@@ -39,31 +63,15 @@ static	int	find_min_node(t_stack *a)
 
 void	selection_sort(t_stack *a, t_stack *b)
 {
-	int	index_i;
 	int	index_min;
-	int	r;
 
 	while (a->size > 0)
 	{
-		index_i = 0;
 		index_min = find_min_node(a);
 		if (index_min <= a->size / 2)
-		{
-			while (index_i < index_min)
-			{
-				ra(a);
-				index_i++;
-			}
-		}
+			loop_rotate(a, index_min);
 		else
-		{
-			r = a->size - index_min;
-			while (r > 0)
-			{
-				rra(a);
-				r--;
-			}
-		}
+			loop_reverse_rotate(a, index_min);
 		pb(b, a);
 	}
 	while (b->size > 0)

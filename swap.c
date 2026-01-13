@@ -6,7 +6,7 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 11:48:07 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/13 12:16:12 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/13 15:05:22 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	sa(t_stack *stack)
 	temp = stack->head->value;
 	stack->head->value = stack->head->next->value;
 	stack->head->next->value = temp;
-	//ft_printf("sa\n");
+	ft_printf("sa\n");
 }
 
 void	sb(t_stack *stack)
@@ -41,5 +41,5 @@ void	ss(t_stack *a, t_stack *b)
 {
 	sa(a);
 	sb(b);
-	ft_printf("ss\n");
+	//ft_printf("ss\n");
 }

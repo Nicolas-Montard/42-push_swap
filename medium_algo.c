@@ -6,7 +6,7 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 15:01:05 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/13 12:14:42 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/13 15:53:35 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "headers/medium.h"
 
 ////allows you to normalize the values ​​so they can be compared to the chunks
+
 static	void	normalize_stack_a(t_stack *a)
 {
 	t_node	*i;
@@ -42,92 +43,22 @@ static	void	normalize_stack_a(t_stack *a)
 		index_i++;
 	}
 }
-//calculate the square root of n elements
 
-static	int	count_chunk_size(t_stack *a)
-{
-	int		chunk_size;
-	int		number;
-
-	number = 1;
-	chunk_size = 0;
-	while (number * number < a->size)
-	{
-		number++;
-		chunk_size++;
-	}
-	return (chunk_size);
-}
-//checks if a value belongs to the chunk
-
-static	int	is_in_chunk(int index, int min, int max)
-{
-	if (index >= min && index <= max)
-		return (1);
-	return (0);
-}
-//check if there are any chunk values ​​left in A
-
-static	int	still_in_a(t_stack *a, int min, int max)
-{
-	t_node	*i;
-	int		index_i;
-
-	i = a->head;
-	index_i = 0;
-	while (index_i < a->size)
-	{
-		if (is_in_chunk(i->index, min, max))
-			return (1);
-		i = i->next;
-		index_i++;
-	}
-	return (0);
-}
 //pushes all chunk values ​​into b
 
-static	void	push_to_stack_b(t_stack *a, t_stack *b, int min, int max)
+void	push_to_stacka_b(t_stack *a, t_stack *b, int min, int max)
 {
-	t_node	*i;
-	int		index;
 	int		index_chunk;
-	int		l;
 
 	while (still_in_a(a, min, max))
 	{
-		i = a->head;
-		index = 0;
-		index_chunk = -1;
-		while (index < a->size)
-		{
-			if (is_in_chunk(i->index, min, max))
-			{
-				index_chunk = index;
-				break ;
-			}
-			i = i->next;
-			index++;
-		}
+		index_chunk = find_closest_value_chunk(a, min, max);
 		if (index_chunk == -1)
 			break ;
 		if (index_chunk <= a->size / 2)
-		{
-			l = 0;
-			while (l < index_chunk)
-			{
-				ra(a);
-				l++;
-			}
-		}
+			loop_rotate(a, index_chunk, 'a');
 		else
-		{
-			l = 0;
-			while (l < a->size - index_chunk)
-			{
-				rra(a);
-				l++;
-			}
-		}
+			loop_reverse_rotate(a, index_chunk, 'a');
 		pb(b, a);
 	}
 }
@@ -159,30 +90,16 @@ static	int	find_max_node(t_stack *b)
 
 static	void	push_stackb_to_a(t_stack *a, t_stack *b)
 {
-	int		index;
 	int		index_max;
-	int		r;
 
 	while (b->size > 0)
 	{
-		index = 0;
 		index_max = find_max_node(b);
 		if (index_max <= b->size / 2)
-		{
-			while (index < index_max)
-			{
-				rb(b);
-				index++;
-			}
-		}
+			loop_rotate(b, index_max, 'b');
 		else
 		{
-			r = b->size - index_max;
-			while (r > 0)
-			{
-				rrb(b);
-				r--;
-			}
+			loop_reverse_rotate(b, index_max, 'b');
 		}
 		pa(a, b);
 	}
@@ -190,27 +107,14 @@ static	void	push_stackb_to_a(t_stack *a, t_stack *b)
 
 void	medium_sort(t_stack *a, t_stack *b)
 {
-	int	min;
-	int	max;
 	int	chunk_size;
-	int	current_chunk;
 	int	total_chunk;
-	int	size_a = a->size;
 
-	current_chunk = 0;
 	normalize_stack_a(a);
 	chunk_size = count_chunk_size(a);
 	total_chunk = a->size / chunk_size;
 	if (a->size % chunk_size != 0)
 		total_chunk++;
-	while (current_chunk < total_chunk)
-	{
-		min = current_chunk * chunk_size;
-		max = min + chunk_size - 1;
-		if (max >= size_a)
-			max = size_a - 1;
-		push_to_stack_b(a, b, min, max);
-		current_chunk++;
-	}
+	push_chunk_to_b(a, b, total_chunk, chunk_size);
 	push_stackb_to_a(a, b);
 }
