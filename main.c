@@ -6,7 +6,7 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 11:48:11 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/08 14:54:59 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/13 13:19:40 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,10 +91,10 @@ int	main(int argc, char *argv[])
 	quick_sort(stackA, stackB);
 	start_node = stackA->head;
 	actual_node = start_node->next;
-	__builtin_printf("%d\n", start_node->value);
+	//__builtin_printf("%d\n", start_node->value);
 	while (actual_node != start_node)
 	{
-		__builtin_printf("%d\n", actual_node->value);
+		//__builtin_printf("%d\n", actual_node->value);
 		actual_node = actual_node->next;
 	}
 }
