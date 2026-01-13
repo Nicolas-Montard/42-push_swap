@@ -6,11 +6,14 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 15:00:07 by aslimani          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2026/01/13 16:52:54 by aslimani         ###   ########.fr       */
+=======
+/*   Updated: 2026/01/09 11:33:11 by aslimani         ###   ########.fr       */
+>>>>>>> 127868d (merge)
 /*                                                                            */
 /* ************************************************************************** */
 
-                                  
 #include "headers/stack.h"
 #include <stdlib.h>
 
