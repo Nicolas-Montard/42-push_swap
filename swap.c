@@ -6,11 +6,12 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 11:48:07 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/06 13:19:25 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/13 11:09:05 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "headers/stack.h"
+#include "headers/ft_printf.h"
 
 void	sa(t_stack *stack)
 {
@@ -21,6 +22,7 @@ void	sa(t_stack *stack)
 	temp = stack->head->value;
 	stack->head->value = stack->head->next->value;
 	stack->head->next->value = temp;
+	ft_printf("sa\n");
 }
 
 void	sb(t_stack *stack)
@@ -32,10 +34,12 @@ void	sb(t_stack *stack)
 	temp = stack->head->value;
 	stack->head->value = stack->head->next->value;
 	stack->head->next->value = temp;
+	ft_printf("sb\n");
 }
 
 void	ss(t_stack *a, t_stack *b)
 {
 	sa(a);
 	sb(b);
+	ft_printf("ss\n");
 }
