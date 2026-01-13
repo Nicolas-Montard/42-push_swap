@@ -6,7 +6,7 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 12:25:56 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/13 10:53:52 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/13 16:44:34 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ void			rrb(t_stack *b);
 
 void			rrr(t_stack *a, t_stack *b);
 
-void			pa(t_stack *a, t_stack *b);
+int				pa(t_stack *a, t_stack *b);
 
-void			pb(t_stack *b, t_stack *a);
+int				pb(t_stack *b, t_stack *a);
 
 void			selection_sort(t_stack *a, t_stack *b);
 
