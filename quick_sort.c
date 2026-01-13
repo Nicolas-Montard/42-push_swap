@@ -6,7 +6,7 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 12:34:33 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/13 16:47:32 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/13 16:49:08 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ static int	sort_stack_a(t_stack *stack_a, t_stack *stack_b, int size_a)
 	size_b = 0;
 	if (size_a < 2)
 		return (1);
-	if (size_a < 10)
+	if (size_a < 15)
 		return (selection_sort_partition(stack_a, stack_b, size_a));
 	if (!split_a_to_b(stack_a, stack_b, &size_a, &size_b))
 		return (0);
