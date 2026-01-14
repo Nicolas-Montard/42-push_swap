@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   medium_utils_2.c                                   :+:      :+:    :+:   */
+/*   chunk_sort_utils_2.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 15:57:48 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/13 16:08:37 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/14 12:02:01 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "headers/stack.h"
 #include <stdlib.h>
-#include "headers/medium.h"
+#include "headers/chunk_sort.h"
 
-void	push_chunk_to_b(t_stack *a, t_stack *b, int total_chk, int chk_size)
+int	push_chunk_to_b(t_stack *a, t_stack *b, int total_chk, int chk_size)
 {
 	int	current_chunk;
 	int	min;
@@ -29,9 +28,11 @@ void	push_chunk_to_b(t_stack *a, t_stack *b, int total_chk, int chk_size)
 		max = min + chk_size - 1;
 		if (max >= size_a)
 			max = size_a - 1;
-		push_to_stacka_b(a, b, min, max);
+		if (!push_to_stacka_b(a, b, min, max))
+			return (0);
 		current_chunk++;
 	}
+	return (1);
 }
 
 int	find_closest_value_chunk(t_stack *a, int min, int max)

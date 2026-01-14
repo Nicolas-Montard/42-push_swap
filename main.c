@@ -6,15 +6,16 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 11:48:11 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/13 16:58:58 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/14 12:20:34 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "headers/list_utils.h"
 #include "headers/stack.h"
 #include "headers/utils.h"
-#include "quick_sort.h"
-#include "headers/medium.h"
+#include "headers/quick_sort.h"
+#include "headers/chunk_sort.h"
+#include "headers/selection_sort.h"
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -90,9 +91,9 @@ int	main(int argc, char *argv[])
 		// TODO send error message
 		return (0);
 	}
-	selection_sort(stackA, stackB);
-	//medium_sort(stackA, stackB);
-	//quick_sort(stackA, stackB);
+	//selection_sort(stackA, stackB);
+	//chunk_sort(stackA, stackB);
+	quick_sort(stackA, stackB);
 	start_node = stackA->head;
 	actual_node = start_node->next;
 	//__builtin_printf("%d\n", start_node->value);
