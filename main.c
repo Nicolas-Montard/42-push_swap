@@ -3,18 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 11:48:11 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/13 13:19:40 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/14 12:20:34 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "headers/list_utils.h"
 #include "headers/stack.h"
 #include "headers/utils.h"
-#include "quick_sort.h"
+#include "headers/quick_sort.h"
+#include "headers/chunk_sort.h"
+#include "headers/selection_sort.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 int	has_only_number(char *values[], int start, int argc)
 {
@@ -26,7 +29,7 @@ int	has_only_number(char *values[], int start, int argc)
 		while (values[start][i] != '\0')
 		{
 			if (values[start][i] < '0' || values[start][i] > '9'
-				|| (values[start][i] == '0' && i == 0))
+				|| (values[start][i] == '0' && i+1 == 0 && i == 0))
 			{
 				return (0);
 			}
@@ -88,6 +91,8 @@ int	main(int argc, char *argv[])
 		// TODO send error message
 		return (0);
 	}
+	//selection_sort(stackA, stackB);
+	//chunk_sort(stackA, stackB);
 	quick_sort(stackA, stackB);
 	start_node = stackA->head;
 	actual_node = start_node->next;

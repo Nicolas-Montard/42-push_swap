@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 12:25:56 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/08 15:55:57 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/14 12:00:19 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 typedef struct node
 {
 	int			value;
+	int			index;
 	struct node	*previous;
 	struct node	*next;
 }				t_node;
@@ -47,7 +48,5 @@ void			rrr(t_stack *a, t_stack *b);
 int				pa(t_stack *a, t_stack *b);
 
 int				pb(t_stack *b, t_stack *a);
-
-void			selection_sort_adaptation(t_stack *a, t_stack *b);
 
 #endif
