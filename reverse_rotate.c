@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 14:00:01 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/13 17:00:12 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/14 15:44:31 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "headers/ft_printf.h"
 #include "headers/stack.h"
-#include "headers/ft_printf.h"
 #include <stdlib.h>
-#include "headers/ft_printf.h"
 
 void	rra(t_stack *a)
 {
@@ -31,7 +30,9 @@ void	rrb(t_stack *b)
 
 void	rrr(t_stack *a, t_stack *b)
 {
-	rra(a);
-	rrb(b);
-	//ft_printf("rrr\n");
+	if (a->size > 1)
+		a->head = a->head->previous;
+	if (b->size > 1)
+		b->head = b->head->previous;
+	ft_printf("rrr\n");
 }
