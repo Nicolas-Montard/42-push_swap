@@ -6,7 +6,7 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 15:13:44 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/13 12:34:34 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/14 11:51:21 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ int	selection_sort_partition_one_way(t_stack *a, t_stack *b, int size_b);
 
 int	quick_sort(t_stack *stack_a, t_stack *stack_b);
 
-int	get_pivot_from_partition(t_stack *stack, int size);
+int	get_median_pivot(t_stack *stack, int size);
 #endif
