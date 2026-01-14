@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   medium_utils.c                                     :+:      :+:    :+:   */
+/*   chunk_sort_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 15:57:26 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/13 16:59:54 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/14 12:08:42 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "headers/stack.h"
 #include <stdlib.h>
-#include "headers/medium.h"
+#include "headers/chunk_sort.h"
 
 //calculate the square root of n elements
 
 int	count_chunk_size(t_stack *a)
 {
 	int		chunk_size;
-	int		number;
 
-	number = 1;
-	chunk_size = 0;
-	while (number * number < a->size)
-	{
-		number++;
+
+	chunk_size = 1;
+	while (chunk_size * chunk_size < a->size)
 		chunk_size++;
-	}
 	return (chunk_size);
 }
 

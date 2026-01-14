@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   medium_algo.c                                      :+:      :+:    :+:   */
+/*   chunk_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 15:01:05 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/13 16:59:50 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/14 12:07:10 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "headers/stack.h"
 #include <stdlib.h>
-#include "headers/medium.h"
+#include "headers/chunk_sort.h"
 
 ////allows you to normalize the values ​​so they can be compared to the chunks
 
@@ -46,7 +45,7 @@ static	void	normalize_stack_a(t_stack *a)
 
 //pushes all chunk values ​​into b
 
-void	push_to_stacka_b(t_stack *a, t_stack *b, int min, int max)
+int	push_to_stacka_b(t_stack *a, t_stack *b, int min, int max)
 {
 	int		index_chunk;
 
@@ -59,8 +58,10 @@ void	push_to_stacka_b(t_stack *a, t_stack *b, int min, int max)
 			loop_rotate(a, index_chunk, 'a');
 		else
 			loop_reverse_rotate(a, index_chunk, 'a');
-		pb(b, a);
+		if (!pb(b, a))
+			return (0);
 	}
+	return (1);
 }
 //finds the maximum node of the stack
 
@@ -88,7 +89,7 @@ static	int	find_max_node(t_stack *b)
 	return (max_index);
 }
 
-static	void	push_stackb_to_a(t_stack *a, t_stack *b)
+static	int	push_stackb_to_a(t_stack *a, t_stack *b)
 {
 	int		index_max;
 
@@ -101,11 +102,13 @@ static	void	push_stackb_to_a(t_stack *a, t_stack *b)
 		{
 			loop_reverse_rotate(b, index_max, 'b');
 		}
-		pa(a, b);
+		if (!pa(a, b))
+			return (0);
 	}
+	return (1);
 }
 
-void	medium_sort(t_stack *a, t_stack *b)
+int	chunk_sort(t_stack *a, t_stack *b)
 {
 	int	chunk_size;
 	int	total_chunk;
@@ -115,6 +118,9 @@ void	medium_sort(t_stack *a, t_stack *b)
 	total_chunk = a->size / chunk_size;
 	if (a->size % chunk_size != 0)
 		total_chunk++;
-	push_chunk_to_b(a, b, total_chunk, chunk_size);
-	push_stackb_to_a(a, b);
+	if (!push_chunk_to_b(a, b, total_chunk, chunk_size))
+		return (0);
+	if (!push_stackb_to_a(a, b))
+		return (0);
+	return (1);
 }

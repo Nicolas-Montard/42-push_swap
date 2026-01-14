@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   simple_algo.c                                      :+:      :+:    :+:   */
+/*   selection_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 15:00:07 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/13 17:00:45 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/14 12:02:58 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "headers/stack.h"
+#include "headers/selection_sort.h"
 #include <stdlib.h>
 
 static	void	loop_rotate(t_stack *stack, int index)
@@ -61,7 +61,7 @@ static	int	find_min_node(t_stack *a)
 	return (min_index);
 }
 
-void	selection_sort(t_stack *a, t_stack *b)
+int	selection_sort(t_stack *a, t_stack *b)
 {
 	int	index_min;
 
@@ -72,8 +72,13 @@ void	selection_sort(t_stack *a, t_stack *b)
 			loop_rotate(a, index_min);
 		else
 			loop_reverse_rotate(a, index_min);
-		pb(b, a);
+		if (!pb(b, a))
+			return (0);
 	}
 	while (b->size > 0)
-		pa(a, b);
+	{
+		if (!pa(a, b))
+			return (0);
+	}
+	return (1);
 }
