@@ -6,7 +6,7 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 11:48:11 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/14 14:44:49 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/14 16:52:12 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ t_stack	*create_stack(char *values[], int start, int end)
 		value = atoi(values[start]);
 		if (add_node(stack, value) == NULL)
 		{
-			// TODO create and use delete stack here
+			delete_stack(&stack);
 			return (NULL);
 		}
 		start--;
@@ -63,45 +63,57 @@ t_stack	*create_stack(char *values[], int start, int end)
 	return (stack);
 }
 
-int	main(int argc, char *argv[])
+static int	create_both_stacks(int argc, char *argv[], t_stack **stackA,
+		t_stack **stackB, int nb_start_at)
 {
-	int		end_at;
-	t_stack	*stackA;
-	t_stack	*stackB;
-	t_node	*start_node;
-	t_node	*actual_node;
-
-	end_at = 1;
-	// TODO set end_at values base on arg
-	// TODO send error message
-	// TODO be able to take string of arg to sort
-	if (!has_only_number(argv, 1, argc))
-		return (0);
-	stackA = create_stack(argv, argc - 1, end_at);
+	stackA = create_stack(argv, argc - 1, nb_start_at);
 	if (stackA == NULL)
 	{
-		// TODO free the stack
-		// TODO send error message
+		printf("Error");
 		return (0);
 	}
 	stackB = create_stack(NULL, 0, 1);
 	if (stackB == NULL)
 	{
-		// TODO free both stack
-		// TODO send error message
+		delete_stack(stackA);
+		printf("Error");
 		return (0);
+	}
+	return (1);
+}
+
+int	*verif_flag(int argc, char *argv[])
+{
+	int	flags[2];
+
+	// first index represent complexity level, 0 is no parameter, 
+	// 1 is simple, 2 is medium, 3 is complex, 4 is adaptative
+	flags[0] = 0;
+	flags[1] = 0;
+}
+
+int	main(int argc, char *argv[])
+{
+	int		nb_start_at;
+	t_stack	*stackA;
+	t_stack	*stackB;
+
+	nb_start_at = 1;
+	// TODO set end_at values base on arg
+	// TODO be able to take string of arg to sort
+	if (!has_only_number(argv, nb_start_at, argc))
+	{
+		printf("Error");
+		return (1);
+	}
+	if (!create_both_stacks(argc, argv, &stackA, &stackB, nb_start_at))
+	{
+		printf("Error");
+		return (1);
 	}
 	// selection_sort(stackA, stackB);
 	// chunk_sort(stackA, stackB);
 	quick_sort(stackA, stackB);
-	start_node = stackA->head;
-	actual_node = start_node->next;
-	//__builtin_printf("%d\n", start_node->value);
-	while (actual_node != start_node)
-	{
-		//__builtin_printf("%d\n", actual_node->value);
-		actual_node = actual_node->next;
-	}
 	delete_stack(&stackA);
 	delete_stack(&stackB);
 	return (0);
