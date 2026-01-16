@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 13:35:03 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/14 14:27:09 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/16 12:25:21 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,31 @@
 #include "headers/stack.h"
 #include <stdlib.h>
 
-void	ra(t_stack *a)
+void	ra(t_stacks *stack)
 {
-	if (a->size > 1)
-		a->head = a->head->next;
+	if (stack->a->size > 1)
+		stack->a->head = stack->a->head->next;
+	stack->bench->op_ra += 1;
+	stack->bench->op_total += 1;
 	ft_printf("ra\n");
 }
 
-void	rb(t_stack *b)
+void	rb(t_stacks *stack)
 {
-	if (b->size > 1)
-		b->head = b->head->next;
+	if (stack->b->size > 1)
+		stack->b->head = stack->b->head->next;
+	stack->bench->op_rb += 1;
+	stack->bench->op_total += 1;
 	ft_printf("rb\n");
 }
 
-void	rr(t_stack *a, t_stack *b)
+void	rr(t_stacks *stack)
 {
-	if (a->size > 1)
-		a->head = a->head->next;
-	if (b->size > 1)
-		b->head = b->head->next;
+	if (stack->a->size > 1)
+		stack->a->head = stack->a->head->next;
+	if (stack->b->size > 1)
+		stack->b->head = stack->b->head->next;
+	stack->bench->op_rr += 1;
+	stack->bench->op_total += 1;
 	ft_printf("rr\n");
 }
