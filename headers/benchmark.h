@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   quick_sort.h                                       :+:      :+:    :+:   */
+/*   benchmark.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/07 15:13:44 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/16 14:46:56 by aslimani         ###   ########.fr       */
+/*   Created: 2026/01/15 13:39:14 by aslimani          #+#    #+#             */
+/*   Updated: 2026/01/16 11:04:46 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef QUICK_SORT_H
-# define QUICK_SORT_H
+#ifndef BENCHMARK_H
+# define BENCHMARK_H
 
-# include "stack.h"
+typedef struct s_bench
+{
+	int		op_sa;
+	int		op_sb;
+	int		op_ss;
+	int		op_pa;
+	int		op_pb;
+	int		op_ra;
+	int		op_rb;
+	int		op_rr;
+	int		op_rra;
+	int		op_rrb;
+	int		op_rrr;
+	int		op_total;
+	int		disorder_metric;
+	char	*strategy_select;
+	char	*strategy_algo;
+	
+}t_bench;
 
-int	selection_sort_partition(t_stacks *stack, int size_a);
+void	benchmark(char *selector, char *algo, t_bench *bench);
 
-int	selection_sort_partition_one_way(t_stacks *stack, int size_b);
-
-int	quick_sort(t_stacks *stack);
-
-int	get_median_pivot(t_stack *stack, int size);
 #endif

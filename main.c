@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 11:48:11 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/14 14:44:49 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/16 15:22:39 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "headers/selection_sort.h"
 #include "headers/stack.h"
 #include "headers/utils.h"
+#include "headers/benchmark.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -65,36 +66,43 @@ t_stack	*create_stack(char *values[], int start, int end)
 
 int	main(int argc, char *argv[])
 {
-	int		end_at;
-	t_stack	*stackA;
-	t_stack	*stackB;
-	t_node	*start_node;
-	t_node	*actual_node;
+	int			end_at;
+	t_stacks 	*stacks;
+	t_node		*start_node;
+	t_node		*actual_node;
+	char		*algo;
+	char		*selector;
 
+	stacks = malloc(sizeof(t_stacks));
+	if (!stacks)
+		return (0);
+	stacks->bench = malloc(sizeof(t_bench));
+	if (!stacks->bench)
+		return (0);
 	end_at = 1;
 	// TODO set end_at values base on arg
 	// TODO send error message
 	// TODO be able to take string of arg to sort
 	if (!has_only_number(argv, 1, argc))
 		return (0);
-	stackA = create_stack(argv, argc - 1, end_at);
-	if (stackA == NULL)
+	stacks->a = create_stack(argv, argc - 1, end_at);
+	if (stacks->a == NULL)
 	{
 		// TODO free the stack
 		// TODO send error message
 		return (0);
 	}
-	stackB = create_stack(NULL, 0, 1);
-	if (stackB == NULL)
+	stacks->b = create_stack(NULL, 0, 1);
+	if (stacks->b == NULL)
 	{
 		// TODO free both stack
 		// TODO send error message
 		return (0);
 	}
-	// selection_sort(stackA, stackB);
-	// chunk_sort(stackA, stackB);
-	quick_sort(stackA, stackB);
-	start_node = stackA->head;
+	//selection_sort(stacks);
+	//chunk_sort(stacks);
+	quick_sort(stacks);
+	start_node = stacks->a->head;
 	actual_node = start_node->next;
 	//__builtin_printf("%d\n", start_node->value);
 	while (actual_node != start_node)
@@ -102,7 +110,10 @@ int	main(int argc, char *argv[])
 		//__builtin_printf("%d\n", actual_node->value);
 		actual_node = actual_node->next;
 	}
-	delete_stack(&stackA);
-	delete_stack(&stackB);
+	selector = "Adaptive";
+	algo = "O(n√n)";
+	benchmark(selector, algo, stacks->bench);
+	delete_stack(&stacks->a);
+	delete_stack(&stacks->b);
 	return (0);
 }

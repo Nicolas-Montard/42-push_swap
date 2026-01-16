@@ -6,7 +6,7 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 15:57:26 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/14 12:08:42 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/16 13:37:46 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	still_in_a(t_stack *a, int min, int max)
 	return (0);
 }
 
-void	loop_rotate(t_stack *stack, int index, char letter)
+void	loop_rotate(t_stacks *stack, int index, char letter)
 {
 	int	r;
 
@@ -76,14 +76,14 @@ void	loop_rotate(t_stack *stack, int index, char letter)
 	}
 }
 
-void	loop_reverse_rotate(t_stack *stack, int index, char letter)
+void	loop_reverse_rotate(t_stacks *stack, int index, char letter)
 {
 	int	rev;
 
 	rev = 0;
 	if (letter == 'a')
 	{
-		while (rev < stack->size - index)
+		while (rev < stack->a->size - index)
 		{
 			rra(stack);
 			rev++;
@@ -91,7 +91,7 @@ void	loop_reverse_rotate(t_stack *stack, int index, char letter)
 	}
 	else
 	{
-		while (rev < stack->size - index)
+		while (rev < stack->b->size - index)
 		{
 			rrb(stack);
 			rev++;

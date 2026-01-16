@@ -3,6 +3,6 @@
 
 #include "stack.h"
 
-int		selection_sort(t_stack *a, t_stack *b);
+int		selection_sort(t_stacks *stack);
 
 #endif

@@ -6,21 +6,21 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 15:57:48 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/14 12:02:01 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/16 13:38:44 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "headers/chunk_sort.h"
 
-int	push_chunk_to_b(t_stack *a, t_stack *b, int total_chk, int chk_size)
+int	push_chunk_to_b(t_stacks *stack, int total_chk, int chk_size)
 {
 	int	current_chunk;
 	int	min;
 	int	max;
 	int	size_a;
 
-	size_a = a->size;
+	size_a = stack->a->size;
 	current_chunk = 0;
 	while (current_chunk < total_chk)
 	{
@@ -28,7 +28,7 @@ int	push_chunk_to_b(t_stack *a, t_stack *b, int total_chk, int chk_size)
 		max = min + chk_size - 1;
 		if (max >= size_a)
 			max = size_a - 1;
-		if (!push_to_stacka_b(a, b, min, max))
+		if (!push_to_stacka_b(stack, min, max))
 			return (0);
 		current_chunk++;
 	}
