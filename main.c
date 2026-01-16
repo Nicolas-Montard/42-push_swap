@@ -6,114 +6,141 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 11:48:11 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/14 16:52:12 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/16 16:51:06 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "headers/chunk_sort.h"
+#include "headers/libft.h"
 #include "headers/list_utils.h"
 #include "headers/quick_sort.h"
 #include "headers/selection_sort.h"
 #include "headers/stack.h"
-#include "headers/utils.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
-int	has_only_number(char *values[], int start, int argc)
-{
-	int	i;
-
-	while (start < argc)
-	{
-		i = 0;
-		while (values[start][i] != '\0')
-		{
-			if (values[start][i] < '0' || values[start][i] > '9'
-				|| (values[start][i] == '0' && i + 1 == 0 && i == 0))
-			{
-				return (0);
-			}
-			i++;
-		}
-		start++;
-	}
-	return (1);
-}
-
-t_stack	*create_stack(char *values[], int start, int end)
+t_stack	*create_stack(char **values)
 {
 	t_stack	*stack;
 	int		value;
+	int		i;
 
+	i = 0;
 	stack = malloc(sizeof(t_stack));
 	if (stack == NULL)
 		return (NULL);
 	stack->head = NULL;
 	stack->size = 0;
-	while (start >= end)
+	if (values == NULL)
+		return (stack);
+	while (values[i] != NULL)
 	{
-		value = atoi(values[start]);
+		value = atoi(values[i]);
 		if (add_node(stack, value) == NULL)
 		{
 			delete_stack(&stack);
 			return (NULL);
 		}
-		start--;
+		i++;
 	}
 	return (stack);
 }
 
-static int	create_both_stacks(int argc, char *argv[], t_stack **stackA,
-		t_stack **stackB, int nb_start_at)
+static int	create_both_stacks(t_stack **stackA, t_stack **stackB,
+		char **numbers)
 {
-	stackA = create_stack(argv, argc - 1, nb_start_at);
-	if (stackA == NULL)
+	*stackA = create_stack(numbers);
+	if (*stackA == NULL)
 	{
-		printf("Error");
 		return (0);
 	}
-	stackB = create_stack(NULL, 0, 1);
-	if (stackB == NULL)
+	*stackB = create_stack(NULL);
+	if (*stackB == NULL)
 	{
 		delete_stack(stackA);
-		printf("Error");
 		return (0);
 	}
 	return (1);
 }
 
-int	*verif_flag(int argc, char *argv[])
+char	**normalize_numbers(int argc, char *argv[])
 {
-	int	flags[2];
+	int		i;
+	char	*numbers;
+	char	*temp;
+	char	**result;
 
-	// first index represent complexity level, 0 is no parameter, 
-	// 1 is simple, 2 is medium, 3 is complex, 4 is adaptative
-	flags[0] = 0;
-	flags[1] = 0;
+	i = 1;
+	numbers = ft_strdup(argv[0]);
+	if (!numbers)
+		return (NULL);
+	while (i < argc)
+	{
+		temp = numbers;
+		numbers = ft_strjoin(argv[i], argv[i + 1]);
+		free(temp);
+		if (!numbers)
+			return (NULL);
+	}
+	result = ft_split(numbers, ' ');
+	free(numbers);
+	return (result);
+}
+
+char	**verif_input(int argc, char *argv[], int flags[2])
+{
+	char	**numbers;
+	int		nb_flag;
+
+	nb_flag = 0;
+	// need to verif return value
+	if (argc < 3)
+		return (NULL);
+	if (!verif_flag(argv, flags))
+		return (NULL);
+	if (flags[0] > 0)
+		nb_flag++;
+	if (flags[1] > 0)
+		nb_flag++;
+	// need to verif what need to be returned
+	if (argc < 3 + nb_flag)
+		return (NULL);
+	numbers = normalize_numbers(argc - nb_flag - 1, &(argv[nb_flag + 1]));
+	if (numbers == NULL)
+		return (NULL);
+	if (!has_only_number(numbers))
+		return (NULL);
+	if (!has_no_same_number(numbers))
+		return (NULL);
+	return (numbers);
 }
 
 int	main(int argc, char *argv[])
 {
-	int		nb_start_at;
 	t_stack	*stackA;
 	t_stack	*stackB;
+	int		flags[2];
+	char	**numbers;
 
-	nb_start_at = 1;
-	// TODO set end_at values base on arg
-	// TODO be able to take string of arg to sort
-	if (!has_only_number(argv, nb_start_at, argc))
+	numbers = verif_input(argc, argv, flags);
+	if (numbers == NULL)
 	{
-		printf("Error");
+		write(2, "Error\n", 6);
 		return (1);
 	}
-	if (!create_both_stacks(argc, argv, &stackA, &stackB, nb_start_at))
+	if (!create_both_stacks(stackA, stackB, numbers))
 	{
-		printf("Error");
+		write(2, "Error\n", 6);
 		return (1);
 	}
-	// selection_sort(stackA, stackB);
-	// chunk_sort(stackA, stackB);
-	quick_sort(stackA, stackB);
+	if(flags[0] == 1)
+		selection_sort(stackA, stackB);
+	else if (flags[0] == 2)
+		chunk_sort(stackA, stackB);
+	else if (flags[0] == 3)
+		quick_sort(stackA, stackB);
+	//
 	delete_stack(&stackA);
 	delete_stack(&stackB);
 	return (0);
