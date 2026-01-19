@@ -6,7 +6,7 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 15:13:44 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/16 14:46:56 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/19 17:32:07 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 
 # include "stack.h"
 
-int	selection_sort_partition(t_stacks *stack, int size_a);
+int	selection_sort_partition(t_stacks *stacks, int size_a);
 
-int	selection_sort_partition_one_way(t_stacks *stack, int size_b);
+int	selection_sort_partition_one_way(t_stacks *stacks, int size_b);
 
-int	quick_sort(t_stacks *stack);
+int	quick_sort(t_stacks *stacks);
 
-int	get_median_pivot(t_stack *stack, int size);
+int	get_median_pivot(t_stack *stacks, int size);
 #endif

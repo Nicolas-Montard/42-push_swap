@@ -6,7 +6,7 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 15:57:26 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/19 16:02:04 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/19 17:27:53 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	still_in_a(t_stack *a, int min, int max)
 	return (0);
 }
 
-void	loop_rotate(t_stacks *stack, int index, char letter)
+void	loop_rotate(t_stacks *stacks, int index, char letter)
 {
 	int	r;
 
@@ -60,7 +60,7 @@ void	loop_rotate(t_stacks *stack, int index, char letter)
 	{
 		while (r < index)
 		{
-			ra(stack);
+			ra(stacks);
 			r++;
 		}
 	}
@@ -68,30 +68,30 @@ void	loop_rotate(t_stacks *stack, int index, char letter)
 	{
 		while (r < index)
 		{
-			rb(stack);
+			rb(stacks);
 			r++;
 		}
 	}
 }
 
-void	loop_reverse_rotate(t_stacks *stack, int index, char letter)
+void	loop_reverse_rotate(t_stacks *stacks, int index, char letter)
 {
 	int	rev;
 
 	rev = 0;
 	if (letter == 'a')
 	{
-		while (rev < stack->a->size - index)
+		while (rev < stacks->a->size - index)
 		{
-			rra(stack);
+			rra(stacks);
 			rev++;
 		}
 	}
 	else
 	{
-		while (rev < stack->b->size - index)
+		while (rev < stacks->b->size - index)
 		{
-			rrb(stack);
+			rrb(stacks);
 			rev++;
 		}
 	}

@@ -6,7 +6,7 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 16:05:27 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/19 16:05:56 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/19 17:41:59 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,7 @@ typedef struct s_disorder
 	t_node		*i;
 	t_node		*j;
 }				t_disorder;
+
+float			compute_disorder(t_stack *a);
 
 #endif
