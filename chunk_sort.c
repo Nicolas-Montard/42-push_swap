@@ -6,11 +6,10 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 15:01:05 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/16 15:09:26 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/19 12:20:03 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "headers/chunk_sort.h"
 
 ////allows you to normalize the values ​​so they can be compared to the chunks

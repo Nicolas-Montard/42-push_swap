@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   benchmark.h                                        :+:      :+:    :+:   */
+/*   disorder_metric.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/15 13:39:14 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/19 15:59:21 by aslimani         ###   ########.fr       */
+/*   Created: 2026/01/19 16:05:27 by aslimani          #+#    #+#             */
+/*   Updated: 2026/01/19 16:05:56 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BENCHMARK_H
-# define BENCHMARK_H
+#ifndef DISORDER_METRIC_H
+# define DISORDER_METRIC_H
 
-typedef struct s_bench
+# include "stack.h"
+
+typedef struct s_disorder
 {
-	int		op_sa;
-	int		op_sb;
-	int		op_ss;
-	int		op_pa;
-	int		op_pb;
-	int		op_ra;
-	int		op_rb;
-	int		op_rr;
-	int		op_rra;
-	int		op_rrb;
-	int		op_rrr;
-	int		op_total;
-	float	disorder_metric;
-	char	*strategy_select;
-	char	*strategy_algo;	
-}				t_bench;
-
-void	benchmark(char *selector, char *algo, t_bench *bench);
+	float		mistakes;
+	float		total_pairs;
+	int			index_i;
+	int			index_j;
+	t_node		*i;
+	t_node		*j;
+}				t_disorder;
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 13:44:33 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/16 12:29:35 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/19 12:09:59 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	pa(t_stacks *stack)
 	remove_node(stack->b, stack->b->head);
 	stack->bench->op_pa += 1;
 	stack->bench->op_total += 1;
-	ft_printf("pa\n");
+	ft_printf(1, "pa\n");
 	return (1);
 }
 
@@ -38,6 +38,6 @@ int	pb(t_stacks *stack)
 	remove_node(stack->a, stack->a->head);
 	stack->bench->op_pb += 1;
 	stack->bench->op_total += 1;
-	ft_printf("pb\n");
+	ft_printf(1, "pb\n");
 	return (1);
 }

@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 12:02:42 by nmontard          #+#    #+#             */
-/*   Updated: 2025/12/18 12:03:06 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/19 16:00:53 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_atoi(const char *nptr)
 {
-	int i;
-	int result;
-	int signe;
+	int	i;
+	int	result;
+	int	signe;
 
 	result = 0;
 	i = 0;
