@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_put_hex_nbr.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 13:24:58 by nmontard          #+#    #+#             */
-/*   Updated: 2025/12/09 15:53:06 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/19 12:02:56 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,21 +35,21 @@ void static	ft_setbase(char base[], int is_lc)
 	}
 }
 
-static void	ft_calculate(unsigned int nb, char base[], int *char_print)
+static void	ft_calculate(unsigned int nb, char base[], int *char_print, int std)
 {
 	if (nb >= 16)
 	{
-		ft_calculate(nb / 16, base, char_print);
-		ft_calculate(nb % 16, base, char_print);
+		ft_calculate(nb / 16, base, char_print, std);
+		ft_calculate(nb % 16, base, char_print, std);
 	}
 	else
-		ft_putchar(base[nb], char_print);
+		ft_putchar(base[nb], char_print, std);
 }
 
-void	ft_put_hex_nbr(unsigned int n, int is_lc, int *char_print)
+void	ft_put_hex_nbr(unsigned int n, int is_lc, int *char_print, int std)
 {
 	char	base[16];
 
 	ft_setbase(base, is_lc);
-	ft_calculate(n, base, char_print);
+	ft_calculate(n, base, char_print, std);
 }

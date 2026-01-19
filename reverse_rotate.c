@@ -6,13 +6,12 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 14:00:01 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/16 12:27:07 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/19 12:20:39 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "headers/ft_printf.h"
 #include "headers/stack.h"
-#include <stdlib.h>
 
 void	rra(t_stacks *stack)
 {
@@ -20,7 +19,7 @@ void	rra(t_stacks *stack)
 		stack->a->head = stack->a->head->previous;
 	stack->bench->op_rra += 1;
 	stack->bench->op_total += 1;
-	ft_printf("rra\n");
+	ft_printf(1, "rra\n");
 }
 
 void	rrb(t_stacks *stack)
@@ -29,7 +28,7 @@ void	rrb(t_stacks *stack)
 		stack->b->head = stack->b->head->previous;
 	stack->bench->op_rrb += 1;
 	stack->bench->op_total += 1;
-	ft_printf("rrb\n");
+	ft_printf(1, "rrb\n");
 }
 
 void	rrr(t_stacks *stack)
@@ -40,5 +39,5 @@ void	rrr(t_stacks *stack)
 		stack->b->head = stack->b->head->previous;
 	stack->bench->op_rrr += 1;
 	stack->bench->op_total += 1;
-	ft_printf("rrr\n");
+	ft_printf(1, "rrr\n");
 }

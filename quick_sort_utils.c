@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quick_sort_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 12:50:11 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/14 11:50:47 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/19 16:21:12 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ int	get_median_pivot(t_stack *stack, int size)
 	{
 		return (start_value);
 	}
-	else if ((end_value < middle_value && end_value > start_value) || (end_value > middle_value && end_value < start_value))
+	else if ((end_value < middle_value && end_value > start_value)
+		|| (end_value > middle_value && end_value < start_value))
 	{
 		return (end_value);
 	}

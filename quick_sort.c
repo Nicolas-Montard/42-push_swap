@@ -6,7 +6,7 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 12:34:33 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/16 15:01:56 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/19 16:06:55 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 static int	sort_stack_a(t_stacks *stack, int size_a);
 
-static int	sort_stack_b(t_stacks* stack, int size_b);
+static int	sort_stack_b(t_stacks *stack, int size_b);
 
 int	split_a_to_b(t_stacks *stack, int *size_a, int *size_b)
 {

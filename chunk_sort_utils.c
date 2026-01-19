@@ -6,11 +6,10 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 15:57:26 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/16 13:37:46 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/19 16:02:04 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "headers/chunk_sort.h"
 
 //calculate the square root of n elements
@@ -18,7 +17,6 @@
 int	count_chunk_size(t_stack *a)
 {
 	int		chunk_size;
-
 
 	chunk_size = 1;
 	while (chunk_size * chunk_size < a->size)

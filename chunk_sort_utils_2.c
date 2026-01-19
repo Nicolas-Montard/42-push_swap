@@ -6,11 +6,10 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 15:57:48 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/16 13:38:44 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/19 12:20:12 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "headers/chunk_sort.h"
 
 int	push_chunk_to_b(t_stacks *stack, int total_chk, int chk_size)
