@@ -6,7 +6,7 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 15:01:05 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/19 17:27:28 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/20 10:14:34 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 ////allows you to normalize the values ​​so they can be compared to the chunks
 
-static	void	normalize_stack_a(t_stack *a)
+static void	normalize_stack_a(t_stack *a)
 {
 	t_node	*i;
 	t_node	*j;
@@ -64,7 +64,7 @@ int	push_to_stacka_b(t_stacks *stacks, int min, int max)
 }
 //finds the maximum node of the stack
 
-static	int	find_max_node(t_stack *b)
+static int	find_max_node(t_stack *b)
 {
 	t_node	*i;
 	t_node	*max_node;
@@ -88,7 +88,7 @@ static	int	find_max_node(t_stack *b)
 	return (max_index);
 }
 
-static	int	push_stackb_to_a(t_stacks *stacks)
+static int	push_stackb_to_a(t_stacks *stacks)
 {
 	int		index_max;
 
@@ -98,9 +98,7 @@ static	int	push_stackb_to_a(t_stacks *stacks)
 		if (index_max <= stacks->b->size / 2)
 			loop_rotate(stacks, index_max, 'b');
 		else
-		{
 			loop_reverse_rotate(stacks, index_max, 'b');
-		}
 		if (!pa(stacks))
 			return (0);
 	}
