@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_put_memory.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 10:35:56 by nmontard          #+#    #+#             */
-/*   Updated: 2025/12/09 15:53:49 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/19 16:22:18 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,27 +32,27 @@ void static	ft_setbase(char base[])
 	}
 }
 
-static void	ft_calculate(unsigned long nb, char base[], int *char_print)
+static void	ft_calculate(unsigned long nb, char base[], int *char_print, int st)
 {
 	if (nb >= 16)
 	{
-		ft_calculate(nb / 16, base, char_print);
-		ft_calculate(nb % 16, base, char_print);
+		ft_calculate(nb / 16, base, char_print, st);
+		ft_calculate(nb % 16, base, char_print, st);
 	}
 	else
-		ft_putchar(base[nb], char_print);
+		ft_putchar(base[nb], char_print, st);
 }
 
-void	ft_put_memory(const void *addr, int *char_print)
+void	ft_put_memory(const void *addr, int *char_print, int std)
 {
 	char	base[16];
 
 	ft_setbase(base);
 	if (!addr)
 	{
-		ft_putstr("(nil)", char_print);
+		ft_putstr("(nil)", char_print, std);
 		return ;
 	}
-	ft_putstr("0x", char_print);
-	ft_calculate((unsigned long)addr, base, char_print);
+	ft_putstr("0x", char_print, std);
+	ft_calculate((unsigned long)addr, base, char_print, std);
 }

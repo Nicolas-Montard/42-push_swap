@@ -6,7 +6,7 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 13:44:33 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/13 17:00:10 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/19 12:09:59 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,28 @@
 #include "headers/ft_printf.h"
 #include <stdlib.h>
 
-int	pa(t_stack *a, t_stack *b)
+int	pa(t_stacks *stack)
 {
-	if (b->head == NULL)
+	if (stack->b->head == NULL)
 		return (1);
-	if (!add_node(a, b->head->value))
+	if (!add_node(stack->a, stack->b->head->value))
 		return (0);
-	remove_node(b, b->head);
-	ft_printf("pa\n");
+	remove_node(stack->b, stack->b->head);
+	stack->bench->op_pa += 1;
+	stack->bench->op_total += 1;
+	ft_printf(1, "pa\n");
 	return (1);
 }
 
-int	pb(t_stack *b, t_stack *a)
+int	pb(t_stacks *stack)
 {
-	if (a->head == NULL)
+	if (stack->a->head == NULL)
 		return (1);
-	if (!add_node(b, a->head->value))
+	if (!add_node(stack->b, stack->a->head->value))
 		return (0);
-	remove_node(a, a->head);
-	ft_printf("pb\n");
+	remove_node(stack->a, stack->a->head);
+	stack->bench->op_pb += 1;
+	stack->bench->op_total += 1;
+	ft_printf(1, "pb\n");
 	return (1);
 }

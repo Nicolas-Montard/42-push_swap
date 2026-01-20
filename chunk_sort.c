@@ -6,16 +6,15 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 15:01:05 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/14 12:07:10 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/20 10:14:34 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "headers/chunk_sort.h"
 
 ////allows you to normalize the values ​​so they can be compared to the chunks
 
-static	void	normalize_stack_a(t_stack *a)
+static void	normalize_stack_a(t_stack *a)
 {
 	t_node	*i;
 	t_node	*j;
@@ -45,27 +44,27 @@ static	void	normalize_stack_a(t_stack *a)
 
 //pushes all chunk values ​​into b
 
-int	push_to_stacka_b(t_stack *a, t_stack *b, int min, int max)
+int	push_to_stacka_b(t_stacks *stacks, int min, int max)
 {
 	int		index_chunk;
 
-	while (still_in_a(a, min, max))
+	while (still_in_a(stacks->a, min, max))
 	{
-		index_chunk = find_closest_value_chunk(a, min, max);
+		index_chunk = find_closest_value_chunk(stacks->a, min, max);
 		if (index_chunk == -1)
 			break ;
-		if (index_chunk <= a->size / 2)
-			loop_rotate(a, index_chunk, 'a');
+		if (index_chunk <= stacks->a->size / 2)
+			loop_rotate(stacks, index_chunk, 'a');
 		else
-			loop_reverse_rotate(a, index_chunk, 'a');
-		if (!pb(b, a))
+			loop_reverse_rotate(stacks, index_chunk, 'a');
+		if (!pb(stacks))
 			return (0);
 	}
 	return (1);
 }
 //finds the maximum node of the stack
 
-static	int	find_max_node(t_stack *b)
+static int	find_max_node(t_stack *b)
 {
 	t_node	*i;
 	t_node	*max_node;
@@ -89,38 +88,36 @@ static	int	find_max_node(t_stack *b)
 	return (max_index);
 }
 
-static	int	push_stackb_to_a(t_stack *a, t_stack *b)
+static int	push_stackb_to_a(t_stacks *stacks)
 {
 	int		index_max;
 
-	while (b->size > 0)
+	while (stacks->b->size > 0)
 	{
-		index_max = find_max_node(b);
-		if (index_max <= b->size / 2)
-			loop_rotate(b, index_max, 'b');
+		index_max = find_max_node(stacks->b);
+		if (index_max <= stacks->b->size / 2)
+			loop_rotate(stacks, index_max, 'b');
 		else
-		{
-			loop_reverse_rotate(b, index_max, 'b');
-		}
-		if (!pa(a, b))
+			loop_reverse_rotate(stacks, index_max, 'b');
+		if (!pa(stacks))
 			return (0);
 	}
 	return (1);
 }
 
-int	chunk_sort(t_stack *a, t_stack *b)
+int	chunk_sort(t_stacks *stacks)
 {
 	int	chunk_size;
 	int	total_chunk;
 
-	normalize_stack_a(a);
-	chunk_size = count_chunk_size(a);
-	total_chunk = a->size / chunk_size;
-	if (a->size % chunk_size != 0)
+	normalize_stack_a(stacks->a);
+	chunk_size = count_chunk_size(stacks->a);
+	total_chunk = stacks->a->size / chunk_size;
+	if (stacks->a->size % chunk_size != 0)
 		total_chunk++;
-	if (!push_chunk_to_b(a, b, total_chunk, chunk_size))
+	if (!push_chunk_to_b(stacks, total_chunk, chunk_size))
 		return (0);
-	if (!push_stackb_to_a(a, b))
+	if (!push_stackb_to_a(stacks))
 		return (0);
 	return (1);
 }

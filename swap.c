@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 11:48:07 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/14 14:25:51 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/19 15:57:14 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,27 @@ static void	swap(t_stack *stack)
 	stack->head->next->value = temp;
 }
 
-void	sa(t_stack *stack)
+void	sa(t_stacks *stack)
 {
-	swap(stack);
-	ft_printf("sa\n");
+	swap(stack->a);
+	stack->bench->op_sa += 1;
+	stack->bench->op_total += 1;
+	ft_printf(1, "sa\n");
 }
 
-void	sb(t_stack *stack)
+void	sb(t_stacks *stack)
 {
-	swap(stack);
-	ft_printf("sb\n");
+	swap(stack->b);
+	stack->bench->op_sb += 1;
+	stack->bench->op_total += 1;
+	ft_printf(1, "sb\n");
 }
 
-void	ss(t_stack *a, t_stack *b)
+void	ss(t_stacks *stack)
 {
-	swap(a);
-	swap(b);
-	ft_printf("ss\n");
+	swap(stack->a);
+	swap(stack->b);
+	stack->bench->op_ss += 1;
+	stack->bench->op_total += 1;
+	ft_printf(1, "ss\n");
 }

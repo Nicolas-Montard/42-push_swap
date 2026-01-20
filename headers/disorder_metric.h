@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   selection_sort.h                                   :+:      :+:    :+:   */
+/*   disorder_metric.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/19 16:03:48 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/19 17:32:46 by aslimani         ###   ########.fr       */
+/*   Created: 2026/01/19 16:05:27 by aslimani          #+#    #+#             */
+/*   Updated: 2026/01/19 17:41:59 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SELECTION_SORT_H
-# define SELECTION_SORT_H
+#ifndef DISORDER_METRIC_H
+# define DISORDER_METRIC_H
 
 # include "stack.h"
 
-int		selection_sort(t_stacks *stacks);
+typedef struct s_disorder
+{
+	float		mistakes;
+	float		total_pairs;
+	int			index_i;
+	int			index_j;
+	t_node		*i;
+	t_node		*j;
+}				t_disorder;
+
+float			compute_disorder(t_stack *a);
 
 #endif

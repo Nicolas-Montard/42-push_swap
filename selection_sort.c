@@ -6,14 +6,13 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 15:00:07 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/14 12:02:58 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/19 17:31:57 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "headers/selection_sort.h"
-#include <stdlib.h>
 
-static	void	loop_rotate(t_stack *stack, int index)
+static	void	loop_rotate(t_stacks *stack, int index)
 {
 	int	r;
 
@@ -25,12 +24,12 @@ static	void	loop_rotate(t_stack *stack, int index)
 	}
 }
 
-static	void	loop_reverse_rotate(t_stack *stack, int index)
+static	void	loop_reverse_rotate(t_stacks *stack, int index)
 {
 	int	rev;
 
 	rev = 0;
-	while (rev < stack->size - index)
+	while (rev < stack->a->size - index)
 	{
 		rra(stack);
 		rev++;
@@ -61,23 +60,23 @@ static	int	find_min_node(t_stack *a)
 	return (min_index);
 }
 
-int	selection_sort(t_stack *a, t_stack *b)
+int	selection_sort(t_stacks *stacks)
 {
 	int	index_min;
 
-	while (a->size > 0)
+	while (stacks->a->size > 0)
 	{
-		index_min = find_min_node(a);
-		if (index_min <= a->size / 2)
-			loop_rotate(a, index_min);
+		index_min = find_min_node(stacks->a);
+		if (index_min <= stacks->a->size / 2)
+			loop_rotate(stacks, index_min);
 		else
-			loop_reverse_rotate(a, index_min);
-		if (!pb(b, a))
+			loop_reverse_rotate(stacks, index_min);
+		if (!pb(stacks))
 			return (0);
 	}
-	while (b->size > 0)
+	while (stacks->b->size > 0)
 	{
-		if (!pa(a, b))
+		if (!pa(stacks))
 			return (0);
 	}
 	return (1);

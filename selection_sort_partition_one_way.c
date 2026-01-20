@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   selection_sort_partition_one_way.c                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 15:07:48 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/13 14:39:15 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/19 17:30:53 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static int	find_max_node(t_stack *b, int size, int index_i)
 	return (max_index);
 }
 
-int	selection_sort_partition_one_way(t_stack *a, t_stack *b, int size_b)
+int	selection_sort_partition_one_way(t_stacks *stacks, int size_b)
 {
 	int	index_i;
 	int	index_max;
@@ -48,18 +48,18 @@ int	selection_sort_partition_one_way(t_stack *a, t_stack *b, int size_b)
 	index_i = 0;
 	while (size_b > 0)
 	{
-		index_max = find_max_node(b, size_b, index_i);
+		index_max = find_max_node(stacks->b, size_b, index_i);
 		while (index_i < index_max)
 		{
-			rb(b);
+			rb(stacks);
 			index_i++;
 		}
 		while (index_i > index_max)
 		{
-			rrb(b);
+			rrb(stacks);
 			index_i--;
 		}
-		if (!pa(a, b))
+		if (!pa(stacks))
 			return (0);
 		size_b--;
 	}

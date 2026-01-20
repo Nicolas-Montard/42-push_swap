@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   selection_sort_partition.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 14:43:58 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/13 13:22:42 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/19 17:30:17 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static int	find_min_node(t_stack *a, int size, int index_i)
 	return (min_index);
 }
 
-static int	sort_to_b(t_stack *a, t_stack *b, int size_a, int *size_b)
+static int	sort_to_b(t_stacks *stacks, int size_a, int *size_b)
 {
 	int	index_i;
 	int	index_min;
@@ -48,18 +48,18 @@ static int	sort_to_b(t_stack *a, t_stack *b, int size_a, int *size_b)
 	index_i = 0;
 	while (size_a > 0)
 	{
-		index_min = find_min_node(a, size_a, index_i);
+		index_min = find_min_node(stacks->a, size_a, index_i);
 		while (index_i < index_min)
 		{
-			ra(a);
+			ra(stacks);
 			index_i++;
 		}
 		while (index_i > index_min)
 		{
-			rra(a);
+			rra(stacks);
 			index_i--;
 		}
-		if (!pb(b, a))
+		if (!pb(stacks))
 			return (0);
 		size_a--;
 		*size_b += 1;
@@ -67,16 +67,16 @@ static int	sort_to_b(t_stack *a, t_stack *b, int size_a, int *size_b)
 	return (1);
 }
 
-int	selection_sort_partition(t_stack *a, t_stack *b, int size_a)
+int	selection_sort_partition(t_stacks *stacks, int size_a)
 {
 	int	size_b;
 
 	size_b = 0;
-	if (!sort_to_b(a, b, size_a, &size_b))
+	if (!sort_to_b(stacks, size_a, &size_b))
 		return (0);
 	while (size_b > 0)
 	{
-		if (!pa(a, b))
+		if (!pa(stacks))
 			return (0);
 		size_b--;
 	}

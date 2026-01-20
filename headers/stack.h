@@ -6,12 +6,14 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 12:25:56 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/14 12:00:19 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/19 17:41:53 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STACK_H
 # define STACK_H
+
+# include "benchmark.h"
 
 typedef struct node
 {
@@ -27,26 +29,33 @@ typedef struct stack
 	int			size;
 }				t_stack;
 
-void			sa(t_stack *stack);
+typedef struct s_stacks
+{
+	t_stack	*a;
+	t_stack	*b;
+	t_bench	*bench;
+}				t_stacks;
 
-void			sb(t_stack *stack);
+void			sa(t_stacks *stack);
 
-void			ss(t_stack *a, t_stack *b);
+void			sb(t_stacks *stack);
 
-void			ra(t_stack *a);
+void			ss(t_stacks *stack);
 
-void			rb(t_stack *b);
+void			ra(t_stacks *stack);
 
-void			rr(t_stack *a, t_stack *b);
+void			rb(t_stacks *stack);
 
-void			rra(t_stack *a);
+void			rr(t_stacks *stack);
 
-void			rrb(t_stack *b);
+void			rra(t_stacks *stack);
 
-void			rrr(t_stack *a, t_stack *b);
+void			rrb(t_stacks *stack);
 
-int				pa(t_stack *a, t_stack *b);
+void			rrr(t_stacks *stack);
 
-int				pb(t_stack *b, t_stack *a);
+int				pa(t_stacks *stack);
+
+int				pb(t_stacks *stack);
 
 #endif

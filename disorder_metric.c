@@ -6,42 +6,36 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 15:00:52 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/13 16:54:09 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/19 13:48:09 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "headers/stack.h"
-#include <stdlib.h>
+#include "headers/disorder_metric.h"
 
-int	compute_disorder(t_stack *a)
+float	compute_disorder(t_stack *a)
 {
-	int		mistakes;
-	int		total_pairs;
-	int		index_i;
-	int		index_j;
-	t_node	*i;
-	t_node	*j;
+	t_disorder	d;
 
-	index_i = 0;
-	mistakes = 0;
-	total_pairs = 0;
-	i = a->head;
+	d.index_i = 0;
+	d.mistakes = 0;
+	d.total_pairs = 0;
+	d.i = a->head;
 	if (a->size < 2)
 		return (0);
-	while (index_i < a->size)
+	while (d.index_i < a->size)
 	{
-		j = i->next;
-		index_j = index_i + 1;
-		while (index_j < a->size)
+		d.j = a->head;
+		d.index_j = d.index_i + 1;
+		while (d.index_j < a->size)
 		{
-			if (i->value > j->value)
-				mistakes++;
-			total_pairs++;
-			j = j->next;
-			index_j++;
+			if (d.i->value > d.j->value)
+				d.mistakes++;
+			d.total_pairs++;
+			d.j = d.j->next;
+			d.index_j++;
 		}
-		i = i->next;
-		index_i++;
+		d.i = d.i->next;
+		d.index_i++;
 	}
-	return ((double)mistakes / total_pairs);
+	return (d.mistakes / d.total_pairs);
 }

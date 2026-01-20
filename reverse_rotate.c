@@ -3,36 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 14:00:01 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/14 15:44:31 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/19 12:20:39 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "headers/ft_printf.h"
 #include "headers/stack.h"
-#include <stdlib.h>
 
-void	rra(t_stack *a)
+void	rra(t_stacks *stack)
 {
-	if (a->size > 1)
-		a->head = a->head->previous;
-	ft_printf("rra\n");
+	if (stack->a->size > 1)
+		stack->a->head = stack->a->head->previous;
+	stack->bench->op_rra += 1;
+	stack->bench->op_total += 1;
+	ft_printf(1, "rra\n");
 }
 
-void	rrb(t_stack *b)
+void	rrb(t_stacks *stack)
 {
-	if (b->size > 1)
-		b->head = b->head->previous;
-	ft_printf("rrb\n");
+	if (stack->b->size > 1)
+		stack->b->head = stack->b->head->previous;
+	stack->bench->op_rrb += 1;
+	stack->bench->op_total += 1;
+	ft_printf(1, "rrb\n");
 }
 
-void	rrr(t_stack *a, t_stack *b)
+void	rrr(t_stacks *stack)
 {
-	if (a->size > 1)
-		a->head = a->head->previous;
-	if (b->size > 1)
-		b->head = b->head->previous;
-	ft_printf("rrr\n");
+	if (stack->a->size > 1)
+		stack->a->head = stack->a->head->previous;
+	if (stack->b->size > 1)
+		stack->b->head = stack->b->head->previous;
+	stack->bench->op_rrr += 1;
+	stack->bench->op_total += 1;
+	ft_printf(1, "rrr\n");
 }

@@ -6,7 +6,7 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 11:48:11 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/19 17:06:27 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/20 10:40:39 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include "headers/quick_sort.h"
 #include "headers/selection_sort.h"
 #include "headers/stack.h"
+#include "headers/benchmark.h"
 #include <stdlib.h>
 #include <unistd.h>
 
@@ -91,6 +92,13 @@ int	main(int argc, char *argv[])
 
 	error = 0;
 	numbers = verif_input(argc, argv, flags, &error);
+	// stacks = malloc(sizeof(t_stacks));
+	// if (!stacks)
+	// 	return (0);
+	// stacks->bench = malloc(sizeof(t_bench));
+	// if (!stacks->bench)
+	// 	return (0);
+	// end_at = 1;
 	if (error == 1)
 	{
 		delete_numbers(&numbers);
@@ -119,7 +127,10 @@ int	main(int argc, char *argv[])
 	{
 		// TODO call bench function
 	}
-	delete_stack(&stackA);
-	delete_stack(&stackB);
+	selector = "Adaptive";
+	algo = "O(n√n)";
+	benchmark(selector, algo, stacks->bench);
+	delete_stack(&stacks->a);
+	delete_stack(&stacks->b);
 	return (0);
 }
