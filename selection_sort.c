@@ -6,7 +6,7 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 15:00:07 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/16 15:11:23 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/19 17:31:57 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,23 +60,23 @@ static	int	find_min_node(t_stack *a)
 	return (min_index);
 }
 
-int	selection_sort(t_stacks *stack)
+int	selection_sort(t_stacks *stacks)
 {
 	int	index_min;
 
-	while (stack->a->size > 0)
+	while (stacks->a->size > 0)
 	{
-		index_min = find_min_node(stack->a);
-		if (index_min <= stack->a->size / 2)
-			loop_rotate(stack, index_min);
+		index_min = find_min_node(stacks->a);
+		if (index_min <= stacks->a->size / 2)
+			loop_rotate(stacks, index_min);
 		else
-			loop_reverse_rotate(stack, index_min);
-		if (!pb(stack))
+			loop_reverse_rotate(stacks, index_min);
+		if (!pb(stacks))
 			return (0);
 	}
-	while (stack->b->size > 0)
+	while (stacks->b->size > 0)
 	{
-		if (!pa(stack))
+		if (!pa(stacks))
 			return (0);
 	}
 	return (1);

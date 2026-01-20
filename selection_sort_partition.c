@@ -6,7 +6,7 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 14:43:58 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/16 15:06:26 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/19 17:30:17 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static int	find_min_node(t_stack *a, int size, int index_i)
 	return (min_index);
 }
 
-static int	sort_to_b(t_stacks *stack, int size_a, int *size_b)
+static int	sort_to_b(t_stacks *stacks, int size_a, int *size_b)
 {
 	int	index_i;
 	int	index_min;
@@ -48,18 +48,18 @@ static int	sort_to_b(t_stacks *stack, int size_a, int *size_b)
 	index_i = 0;
 	while (size_a > 0)
 	{
-		index_min = find_min_node(stack->a, size_a, index_i);
+		index_min = find_min_node(stacks->a, size_a, index_i);
 		while (index_i < index_min)
 		{
-			ra(stack);
+			ra(stacks);
 			index_i++;
 		}
 		while (index_i > index_min)
 		{
-			rra(stack);
+			rra(stacks);
 			index_i--;
 		}
-		if (!pb(stack))
+		if (!pb(stacks))
 			return (0);
 		size_a--;
 		*size_b += 1;
@@ -67,16 +67,16 @@ static int	sort_to_b(t_stacks *stack, int size_a, int *size_b)
 	return (1);
 }
 
-int	selection_sort_partition(t_stacks *stack, int size_a)
+int	selection_sort_partition(t_stacks *stacks, int size_a)
 {
 	int	size_b;
 
 	size_b = 0;
-	if (!sort_to_b(stack, size_a, &size_b))
+	if (!sort_to_b(stacks, size_a, &size_b))
 		return (0);
 	while (size_b > 0)
 	{
-		if (!pa(stack))
+		if (!pa(stacks))
 			return (0);
 		size_b--;
 	}

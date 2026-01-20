@@ -6,7 +6,7 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 12:25:56 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/19 16:05:14 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/19 17:41:53 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,5 @@ void			rrr(t_stacks *stack);
 int				pa(t_stacks *stack);
 
 int				pb(t_stacks *stack);
-
-float			compute_disorder(t_stack *a);
 
 #endif
