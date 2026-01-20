@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   disorder_metric.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 15:00:52 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/19 13:48:09 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/20 12:59:59 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ float	compute_disorder(t_stack *a)
 		return (0);
 	while (d.index_i < a->size)
 	{
-		d.j = a->head;
+		d.j = d.i->next;
 		d.index_j = d.index_i + 1;
 		while (d.index_j < a->size)
 		{

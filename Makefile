@@ -6,7 +6,7 @@
 #    By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/05 15:10:14 by nmontard          #+#    #+#              #
-#    Updated: 2026/01/20 10:39:57 by nmontard         ###   ########.fr        #
+#    Updated: 2026/01/20 14:48:09 by nmontard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ LIBFT_FILES := $(addprefix $(LIBFT_PATH)/, $(LIBFT_FILES))
 DIR_TO_CREATE = obj_and_dep_dir obj_and_dep_dir/$(PRINTF_PATH) obj_and_dep_dir/$(LIBFT_PATH)
 CFILES = push.c swap.c list_utils.c main.c quick_sort.c reverse_rotate.c rotate.c swap.c $(PRINTF_FILES) \
 selection_sort_partition.c selection_sort_partition_one_way.c quick_sort_utils.c chunk_sort.c selection_sort.c \
-chunk_sort_utils.c chunk_sort_utils_2.c parsing.c benchmark.c disorder_metric.c $(LIBFT_FILES)
+chunk_sort_utils.c chunk_sort_utils_2.c parsing.c benchmark.c disorder_metric.c adaptative.c normalize_numbers.c \
+parsing_verif_numbers.c $(LIBFT_FILES)
 OBJECTS = $(addprefix obj_and_dep_dir/, $(CFILES:.c=.o))
 DEPS = $(addprefix obj_and_dep_dir/, $(CFILES:.c=.d))
 NAME = push_swap

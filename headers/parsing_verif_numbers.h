@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.h                                          :+:      :+:    :+:   */
+/*   parsing_verif_numbers.h                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/16 16:42:48 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/20 14:50:23 by nmontard         ###   ########.fr       */
+/*   Created: 2026/01/20 14:40:46 by nmontard          #+#    #+#             */
+/*   Updated: 2026/01/20 14:50:26 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSING_H
-# define PARSING_H
-# include "parsing_verif_numbers.h"
-# include "stack.h"
+#ifndef PARSING_VERIF_H
+# define PARSING_VERIF_H
 
-char	**verif_input(int argc, char *argv[], int flags[3], int *error);
-void	adaptative(t_stacks *stacks);
-char	**normalize_numbers(int argc, char *argv[]);
+int	numbers_are_int(char **numbers);
+
+int	number_is_int_negative(char *number);
+
+int	number_is_int_positive(char *number);
+
+int	has_no_same_number(char **values);
+
+int	has_only_number(char **values);
 
 #endif

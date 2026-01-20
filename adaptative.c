@@ -3,13 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   adaptative.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 17:33:16 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/20 10:19:51 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/20 11:35:38 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "headers/chunk_sort.h"
+#include "headers/quick_sort.h"
+#include "headers/selection_sort.h"
 #include "headers/stack.h"
 
 void	adaptative(t_stacks *stacks)

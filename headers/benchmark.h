@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   benchmark.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 13:39:14 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/19 15:59:21 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/20 11:16:59 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,9 @@ typedef struct s_bench
 	int		op_rrr;
 	int		op_total;
 	float	disorder_metric;
-	char	*strategy_select;
-	char	*strategy_algo;	
-}				t_bench;
+	int		algo_type;
+}			t_bench;
 
-void	benchmark(char *selector, char *algo, t_bench *bench);
+void		benchmark(t_bench *bench);
 
 #endif
