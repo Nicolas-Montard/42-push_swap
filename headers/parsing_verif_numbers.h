@@ -1,36 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   benchmark.h                                        :+:      :+:    :+:   */
+/*   parsing_verif_numbers.h                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/15 13:39:14 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/20 11:16:59 by nmontard         ###   ########.fr       */
+/*   Created: 2026/01/20 14:40:46 by nmontard          #+#    #+#             */
+/*   Updated: 2026/01/21 14:54:47 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BENCHMARK_H
-# define BENCHMARK_H
+#ifndef PARSING_VERIF_NUMBERS_H
+# define PARSING_VERIF_NUMBERS_H
 
-typedef struct s_bench
-{
-	int		op_sa;
-	int		op_sb;
-	int		op_ss;
-	int		op_pa;
-	int		op_pb;
-	int		op_ra;
-	int		op_rb;
-	int		op_rr;
-	int		op_rra;
-	int		op_rrb;
-	int		op_rrr;
-	int		op_total;
-	float	disorder_metric;
-	int		algo_type;
-}			t_bench;
+int	numbers_are_int(char **numbers);
 
-void		benchmark(t_bench *bench);
+int	number_is_int_negative(char *number);
+
+int	number_is_int_positive(char *number);
+
+int	has_no_same_number(char **values);
+
+int	has_only_number(char **values);
 
 #endif

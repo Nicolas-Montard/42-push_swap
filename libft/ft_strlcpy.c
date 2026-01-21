@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   benchmark.h                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/15 13:39:14 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/20 11:16:59 by nmontard         ###   ########.fr       */
+/*   Created: 2025/11/12 10:26:33 by nmontard          #+#    #+#             */
+/*   Updated: 2025/11/12 11:15:33 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BENCHMARK_H
-# define BENCHMARK_H
+#include "libft.h"
 
-typedef struct s_bench
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	int		op_sa;
-	int		op_sb;
-	int		op_ss;
-	int		op_pa;
-	int		op_pb;
-	int		op_ra;
-	int		op_rb;
-	int		op_rr;
-	int		op_rra;
-	int		op_rrb;
-	int		op_rrr;
-	int		op_total;
-	float	disorder_metric;
-	int		algo_type;
-}			t_bench;
+	unsigned int	src_length;
+	size_t			i;
 
-void		benchmark(t_bench *bench);
-
-#endif
+	src_length = 0;
+	i = 0;
+	while (src[src_length] != '\0')
+	{
+		src_length++;
+	}
+	if (size < 1)
+	{
+		return (src_length);
+	}
+	while (src[i] != '\0' && i < size - 1)
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	i++;
+	return (src_length);
+}

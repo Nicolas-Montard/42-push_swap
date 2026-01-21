@@ -1,36 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   benchmark.h                                        :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/15 13:39:14 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/20 11:16:59 by nmontard         ###   ########.fr       */
+/*   Created: 2025/11/06 15:18:48 by nmontard          #+#    #+#             */
+/*   Updated: 2025/11/12 10:19:16 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BENCHMARK_H
-# define BENCHMARK_H
-
-typedef struct s_bench
+int	ft_isalpha(int c)
 {
-	int		op_sa;
-	int		op_sb;
-	int		op_ss;
-	int		op_pa;
-	int		op_pb;
-	int		op_ra;
-	int		op_rb;
-	int		op_rr;
-	int		op_rra;
-	int		op_rrb;
-	int		op_rrr;
-	int		op_total;
-	float	disorder_metric;
-	int		algo_type;
-}			t_bench;
-
-void		benchmark(t_bench *bench);
-
-#endif
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+		return (1);
+	return (0);
+}

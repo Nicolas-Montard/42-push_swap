@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nmontard <nmontard@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/18 12:03:27 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/06 15:08:29 by nmontard         ###   ########.fr       */
+/*   Created: 2025/11/06 16:15:26 by nmontard          #+#    #+#             */
+/*   Updated: 2025/11/10 11:39:16 by nmontard         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
+#include "libft.h"
 
-int	ft_atoi(const char *nptr);
+void	ft_bzero(void *s, size_t n)
+{
+	unsigned long	i;
 
-#endif
+	i = 0;
+	while (i < n)
+	{
+		((unsigned char *)s)[i] = '\0';
+		i++;
+	}
+}

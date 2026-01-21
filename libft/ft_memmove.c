@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   benchmark.h                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/15 13:39:14 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/20 11:16:59 by nmontard         ###   ########.fr       */
+/*   Created: 2025/11/06 16:37:18 by nmontard          #+#    #+#             */
+/*   Updated: 2025/11/12 10:20:24 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BENCHMARK_H
-# define BENCHMARK_H
+#include "libft.h"
 
-typedef struct s_bench
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	int		op_sa;
-	int		op_sb;
-	int		op_ss;
-	int		op_pa;
-	int		op_pb;
-	int		op_ra;
-	int		op_rb;
-	int		op_rr;
-	int		op_rra;
-	int		op_rrb;
-	int		op_rrr;
-	int		op_total;
-	float	disorder_metric;
-	int		algo_type;
-}			t_bench;
+	int	i;
 
-void		benchmark(t_bench *bench);
-
-#endif
+	if (!dest && !src)
+		return (0);
+	if (src < dest)
+	{
+		i = n - 1;
+		while (i != -1)
+		{
+			((char *)dest)[i] = ((char *)src)[i];
+			i--;
+		}
+	}
+	else
+		ft_memcpy(dest, src, n);
+	return (dest);
+}

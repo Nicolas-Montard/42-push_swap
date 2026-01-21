@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   adaptative.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/19 17:33:16 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/21 14:04:26 by nmontard         ###   ########.fr       */
+/*   Created: 2025/11/12 12:05:43 by nmontard          #+#    #+#             */
+/*   Updated: 2026/01/15 15:13:12 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "headers/chunk_sort.h"
-#include "headers/quick_sort.h"
-#include "headers/selection_sort.h"
-#include "headers/stack.h"
+#include "libft.h"
+#include <limits.h>
 
-int	adaptative(t_stacks *stacks)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	float	value;
-	int		result;
+	void			*array;
+	unsigned int	i;
+	unsigned int	t_size;
 
-	result = 1;
-	value = stacks->bench->disorder_metric;
-	if (value < 0.2)
-		result = selection_sort(stacks);
-	else if (value < 0.5)
-		result = chunk_sort(stacks);
-	else
-		result = quick_sort(stacks);
-	return (result);
+	i = 0;
+	if (nmemb <= 0 || size <= 0)
+		return (malloc(0));
+	if (size && nmemb > UINT_MAX / size)
+		return (0);
+	t_size = nmemb * size;
+	array = malloc(nmemb * size);
+	if (!array)
+		return (array);
+	while (i < t_size)
+	{
+		((char *)array)[i] = 0;
+		i++;
+	}
+	return (array);
 }

@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   benchmark.h                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/15 13:39:14 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/20 11:16:59 by nmontard         ###   ########.fr       */
+/*   Created: 2025/11/11 13:50:25 by nmontard          #+#    #+#             */
+/*   Updated: 2025/11/16 11:55:55 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BENCHMARK_H
-# define BENCHMARK_H
+#include "libft.h"
 
-typedef struct s_bench
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int		op_sa;
-	int		op_sb;
-	int		op_ss;
-	int		op_pa;
-	int		op_pb;
-	int		op_ra;
-	int		op_rb;
-	int		op_rr;
-	int		op_rra;
-	int		op_rrb;
-	int		op_rrr;
-	int		op_total;
-	float	disorder_metric;
-	int		algo_type;
-}			t_bench;
+	unsigned int	i;
 
-void		benchmark(t_bench *bench);
-
-#endif
+	i = 0;
+	while (i < n)
+	{
+		if (((unsigned char *)s)[i] == ((unsigned char)c))
+			return ((void *)&(((unsigned char *)s)[i]));
+		i++;
+	}
+	return (0);
+}
