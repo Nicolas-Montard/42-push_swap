@@ -6,7 +6,7 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 16:35:19 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/20 14:48:34 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/21 14:53:34 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,16 @@ static int	verif_complexity_flag(char *str)
 	return (0);
 }
 
-static int	verif_flag(char *argv[], int flags[3], int argc)
+// first index of flags represent complexity level, 0 is no parameter,
+// 1 is simple, 2 is medium, 3 is complex, 4 is adaptative
+// second index of flags is for presence of bench flag, 0 no flag, 1 flag exist
+static int	verif_flag(char *argv[], int flags[2], int argc)
 {
 	int	i;
 
 	i = 1;
-	// first index represent complexity level, 0 is no parameter,
-	// 1 is simple, 2 is medium, 3 is complex, 4 is adaptative
 	flags[0] = 0;
-	// second index is for presence of bench flag, 0 no flag, 1 flag exist
 	flags[1] = 0;
-	flags[2] = 0;
 	if (argc < 2)
 		return (1);
 	while (i < argc && argv[i][0] == '-' && argv[i][1] == '-')
@@ -46,10 +45,7 @@ static int	verif_flag(char *argv[], int flags[3], int argc)
 		if (flags[1] == 0 && ft_strncmp("--bench", argv[i], 8) == 0)
 			flags[1] = 1;
 		else if (flags[0] == 0 && verif_complexity_flag(argv[i]))
-		{
 			flags[0] = verif_complexity_flag(argv[i]);
-			flags[2] = verif_complexity_flag(argv[i]);
-		}
 		else
 			return (0);
 		i++;
@@ -63,7 +59,7 @@ char	**return_error(char **numbers, int *error)
 	return (numbers);
 }
 
-char	**verif_input(int argc, char *argv[], int flags[3], int *error)
+char	**verif_input(int argc, char *argv[], int flags[2], int *error)
 {
 	char	**numbers;
 	int		nb_flag;

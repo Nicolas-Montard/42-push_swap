@@ -6,10 +6,11 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 14:38:11 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/20 14:54:50 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/21 14:44:43 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include "headers/libft.h"
 #include <stdlib.h>
 
@@ -93,14 +94,12 @@ int	numbers_are_int(char **numbers)
 	while (numbers[i] != NULL)
 	{
 		if (numbers[i][0] == '-')
+		{
 			if (!number_is_int_negative(numbers[i]))
-			{
 				return (0);
-			}
-			else if (!number_is_int_positive(numbers[i]))
-			{
-				return (0);
-			}
+		}
+		else if (!number_is_int_positive(numbers[i]))
+			return (0);
 		i++;
 	}
 	return (1);

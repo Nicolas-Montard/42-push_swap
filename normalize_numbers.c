@@ -6,7 +6,7 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 14:46:07 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/20 14:50:44 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/21 14:53:46 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ static char	**normalize_if_size_zero(void)
 
 char	**normalize_numbers(int argc, char *argv[])
 {
-	int i;
-	char *numbers;
-	char *temp;
-	char **result;
+	int		i;
+	char	*numbers;
+	char	*temp;
+	char	**result;
 
 	i = 1;
 	if (argc == 0)

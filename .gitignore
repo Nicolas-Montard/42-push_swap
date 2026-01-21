@@ -3,3 +3,4 @@ obj_and_dep_dir
 push_swap_visualizer
 test_push_swap.sh
 checker_linux
+playtest.sh

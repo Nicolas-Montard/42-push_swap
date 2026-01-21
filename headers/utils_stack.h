@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_verif_numbers.h                            :+:      :+:    :+:   */
+/*   utils_stack.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/20 14:40:46 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/21 14:54:47 by nmontard         ###   ########.fr       */
+/*   Created: 2026/01/21 14:19:01 by nmontard          #+#    #+#             */
+/*   Updated: 2026/01/21 14:23:12 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSING_VERIF_NUMBERS_H
-# define PARSING_VERIF_NUMBERS_H
+#ifndef UTILS_STACK_H
+# define UTILS_STACK_H
 
-int	numbers_are_int(char **numbers);
+# include "stack.h"
 
-int	number_is_int_negative(char *number);
+int		create_both_stacks(t_stacks *stacks, char **numbers);
 
-int	number_is_int_positive(char *number);
-
-int	has_no_same_number(char **values);
-
-int	has_only_number(char **values);
+void	free_stacks(t_stacks **stacks);
 
 #endif

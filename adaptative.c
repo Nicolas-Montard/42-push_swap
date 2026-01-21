@@ -6,7 +6,7 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 17:33:16 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/20 11:35:38 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/21 14:04:26 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,18 @@
 #include "headers/selection_sort.h"
 #include "headers/stack.h"
 
-void	adaptative(t_stacks *stacks)
+int	adaptative(t_stacks *stacks)
 {
 	float	value;
+	int		result;
 
+	result = 1;
 	value = stacks->bench->disorder_metric;
 	if (value < 0.2)
-		selection_sort(stacks);
+		result = selection_sort(stacks);
 	else if (value < 0.5)
-		chunk_sort(stacks);
-	else if (value >= 0.5)
-		quick_sort(stacks);
+		result = chunk_sort(stacks);
 	else
-		return ;
+		result = quick_sort(stacks);
+	return (result);
 }
