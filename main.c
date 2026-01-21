@@ -6,7 +6,7 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 11:48:11 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/21 16:59:11 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/21 17:56:38 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,9 @@ int	main(int argc, char *argv[])
 	stacks->bench->algo_type = flags[0];
 	delete_numbers(&numbers);
 	stacks->bench->disorder_metric = compute_disorder(stacks->a);
-	select_algo(stacks, flags);
+	error = select_algo(stacks, flags);
 	free_stacks(&stacks);
+	if (error == 0)
+		return (1);
 	return (0);
 }
