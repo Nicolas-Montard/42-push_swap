@@ -6,11 +6,10 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 14:38:11 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/21 14:44:43 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/21 16:55:32 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
 #include "headers/libft.h"
 #include <stdlib.h>
 

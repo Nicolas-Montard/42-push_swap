@@ -6,12 +6,12 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 14:46:07 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/21 14:53:46 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/21 16:56:30 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "headers/libft.h"
 #include <stdlib.h>
+#include "headers/libft.h"
 
 static char	**normalize_if_size_zero(void)
 {
