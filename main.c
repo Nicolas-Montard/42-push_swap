@@ -6,7 +6,7 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 11:48:11 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/21 14:49:50 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/21 16:59:11 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "headers/chunk_sort.h"
 #include "headers/disorder_metric.h"
 #include "headers/ft_printf.h"
-#include "headers/libft.h"
 #include "headers/list_utils.h"
 #include "headers/parsing.h"
 #include "headers/quick_sort.h"

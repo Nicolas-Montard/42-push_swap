@@ -6,10 +6,11 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 14:16:26 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/21 14:47:28 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/21 16:55:36 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "headers/libft.h"
 #include "headers/stack.h"
 #include "list_utils.h"
 #include <stdlib.h>
