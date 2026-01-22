@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 11:48:11 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/22 12:22:18 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/22 13:13:58 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include "headers/quick_sort.h"
 #include "headers/selection_sort.h"
 #include "headers/stack.h"
+#include "headers/utils.h"
 #include "headers/utils_stack.h"
 #include <stdlib.h>
 
@@ -74,19 +75,6 @@ static int	select_algo(t_stacks *stacks, int flags[2])
 	return (1);
 }
 
-t_stacks	*inititalize_stacks(void)
-{
-	t_stacks	*stacks;
-
-	stacks = malloc(sizeof(t_stacks));
-	if (stacks == NULL)
-		return (NULL);
-	stacks->a = NULL;
-	stacks->b = NULL;
-	stacks->bench = NULL;
-	return (stacks);
-}
-
 int	main(int argc, char *argv[])
 {
 	t_stacks	*stacks;
@@ -103,7 +91,7 @@ int	main(int argc, char *argv[])
 		return (end_main(&numbers, &stacks, 1));
 	if (!create_both_stacks(stacks, numbers))
 		return (end_main(&numbers, &stacks, 1));
-	stacks->bench = malloc(sizeof(t_bench));
+	stacks->bench = init_benchmark();
 	if (!stacks->bench)
 		return (end_main(&numbers, &stacks, 1));
 	stacks->bench->algo_type = flags[0];
