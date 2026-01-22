@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 11:48:11 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/21 17:56:38 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/22 12:22:18 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,7 @@ static int	select_algo(t_stacks *stacks, int flags[2])
 	{
 		if (flags[1] == 1)
 			benchmark(stacks->bench);
-		free_stacks(&stacks);
-		return (0);
+		return (1);
 	}
 	if (flags[0] == 1)
 		error = selection_sort(stacks);
