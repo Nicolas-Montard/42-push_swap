@@ -102,11 +102,11 @@ This strategy offers a good compromise between performance and implementation co
 
 The complex strategy is based on a recursive quick sort adaptation with stack partitioning.
 
-The algorithm works by recursively dividing the data into smaller virtual sub-stacks and sorting them independently. It begins with an initial split: a pivot is selected using the median-of-three method (comparing the first, middle, and last elements of the current range), and all values smaller than or equal to the pivot are pushed from stack a to stack b, while values greater than the pivot remain in stack a.
+The algorithm works by recursively dividing the data into smaller virtual sub-stacks and sorting them independently. It begins with an initial split: a pivot is selected using the median-of-three method (comparing the first, middle, and last elements of the current range), and all values smaller than or equal to the pivot are pushed from stack `a` to stack `b`, while values greater than the pivot remain in stack `a`.
 
 These two groups are then treated as virtual sub-stacks, tracked by passing their calculated sizes as parameters to the recursive functions. The algorithm then calls sort_a followed by sort_b, which are the core recursive functions. Each function splits its own sub-stack using a new pivot and recursively calls sort_a and then sort_b again, creating a tree-like structure of function calls.
 
-The order of these calls is essential: by always processing stack a before stack b, the algorithm ensures that larger elements are handled first and smaller elements last. This guarantees that the largest values settle at the bottom of the stack while the smallest values end up at the top, maintaining proper ordering throughout the process.
+The order of these calls is essential: by always processing stack `a` before stack `b`, the algorithm ensures that larger elements are handled first and smaller elements last. This guarantees that the largest values settle at the bottom of the stack while the smallest values end up at the top, maintaining proper ordering throughout the process.
 
 Each recursive call has a base case: when a sub-stack size falls below 16 elements, a selection sort adapted to work within the constraints of the sub-stack is applied. This adapted selection sort uses rotations to isolate and sort the targeted portion of the stack efficiently.
 
