@@ -6,7 +6,7 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 13:39:10 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/20 11:23:26 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/22 13:29:07 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static char	*return_selector_from_flag(t_bench *bench)
 	else if (bench->algo_type == 3)
 		return ("Complex");
 	else
-		return ("Adaptative");
+		return ("Adaptive");
 }
 
 static char	*return_complexity_algo(t_bench *bench)

@@ -6,7 +6,7 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 16:42:48 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/21 14:50:45 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/22 13:28:57 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "stack.h"
 
 char	**verif_input(int argc, char *argv[], int flags[2], int *error);
-int		adaptative(t_stacks *stacks);
+int		adaptive(t_stacks *stacks);
 char	**normalize_numbers(int argc, char *argv[]);
 
 #endif

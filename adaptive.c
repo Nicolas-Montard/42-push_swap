@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   adaptative.c                                       :+:      :+:    :+:   */
+/*   adaptive.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 17:33:16 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/21 14:04:26 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/22 13:28:45 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "headers/selection_sort.h"
 #include "headers/stack.h"
 
-int	adaptative(t_stacks *stacks)
+int	adaptive(t_stacks *stacks)
 {
 	float	value;
 	int		result;

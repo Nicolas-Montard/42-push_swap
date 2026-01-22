@@ -6,7 +6,7 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 11:48:11 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/22 13:13:58 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/22 13:28:31 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static int	select_algo(t_stacks *stacks, int flags[2])
 	else if (flags[0] == 3)
 		error = quick_sort(stacks);
 	else
-		error = adaptative(stacks);
+		error = adaptive(stacks);
 	if (error == 0)
 		return (0);
 	if (flags[1] == 1)

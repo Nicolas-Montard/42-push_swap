@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 16:35:19 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/22 12:03:04 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/22 13:28:22 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ static int	verif_complexity_flag(char *str)
 		return (2);
 	if (ft_strncmp(str, "--complex", 10) == 0)
 		return (3);
-	if (ft_strncmp(str, "--adaptative", 13) == 0)
+	if (ft_strncmp(str, "--adaptive", 13) == 0)
 		return (4);
 	return (0);
 }
 
 // first index of flags represent complexity level, 0 is no parameter,
-// 1 is simple, 2 is medium, 3 is complex, 4 is adaptative
+// 1 is simple, 2 is medium, 3 is complex, 4 is adaptive
 // second index of flags is for presence of bench flag, 0 no flag, 1 flag exist
 static int	verif_flag(char *argv[], int flags[2], int argc)
 {
