@@ -6,7 +6,7 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 14:38:11 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/21 16:55:32 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/22 15:39:36 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ int	has_only_number(char **values)
 					&& values[j][1] != '\0'))
 			{
 				if ((not_digit_counter >= 1 && values[j][0] == '-')
-					|| (not_digit_counter >= 0 && values[j][0] != '-'))
+					|| (not_digit_counter >= 0 && (values[j][0] != '-'
+							|| (values[j][0] == '-' && values[j][1] == '\0'))))
 					return (0);
 				not_digit_counter++;
 			}

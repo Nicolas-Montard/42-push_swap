@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   quick_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/05 12:34:33 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/19 17:29:31 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/23 15:36:33 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "headers/quick_sort.h"
+#include "headers/selection_sort.h"
 #include "headers/stack.h"
 #include <stdlib.h>
 
@@ -78,7 +79,7 @@ static int	sort_stack_a(t_stacks *stacks, int size_a)
 	size_b = 0;
 	if (size_a < 2)
 		return (1);
-	if (size_a < 16)
+	if (size_a < 10)
 		return (selection_sort_partition(stacks, size_a));
 	if (!split_a_to_b(stacks, &size_a, &size_b))
 		return (0);
@@ -98,7 +99,7 @@ static int	sort_stack_b(t_stacks *stacks, int size_b)
 	i = 0;
 	if (size_b < 1)
 		return (1);
-	if (size_b < 16)
+	if (size_b < 10)
 		return (selection_sort_partition_one_way(stacks, size_b));
 	if (!split_b_to_a(stacks, &size_a, &size_b))
 		return (0);
@@ -119,6 +120,8 @@ int	quick_sort(t_stacks *stacks)
 
 	start_size_a = stacks->a->size;
 	i = 0;
+	if (stacks->a->size < 10)
+		return (selection_sort(stacks));
 	pivot = get_median_pivot(stacks->a, stacks->a->size);
 	while (i < start_size_a)
 	{

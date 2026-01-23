@@ -6,7 +6,7 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 13:39:14 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/20 11:16:59 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/22 15:31:46 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct s_bench
 	int		op_rrr;
 	int		op_total;
 	float	disorder_metric;
-	int		algo_type;
+	int		*flags;
 }			t_bench;
 
 void		benchmark(t_bench *bench);

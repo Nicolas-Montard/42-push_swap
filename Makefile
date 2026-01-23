@@ -25,7 +25,7 @@ DIR_TO_CREATE = obj_and_dep_dir obj_and_dep_dir/$(PRINTF_PATH) obj_and_dep_dir/$
 CFILES = push.c swap.c list_utils.c main.c quick_sort.c reverse_rotate.c rotate.c swap.c $(PRINTF_FILES) \
 selection_sort_partition.c selection_sort_partition_one_way.c quick_sort_utils.c chunk_sort.c selection_sort.c \
 chunk_sort_utils.c chunk_sort_utils_2.c parsing.c benchmark.c disorder_metric.c adaptative.c normalize_numbers.c \
-parsing_verif_numbers.c utils_stack.c utils_algo.c $(LIBFT_FILES)
+parsing_verif_numbers.c utils_stack.c utils_algo.c utils.c $(LIBFT_FILES)
 OBJECTS = $(addprefix obj_and_dep_dir/, $(CFILES:.c=.o))
 DEPS = $(addprefix obj_and_dep_dir/, $(CFILES:.c=.d))
 NAME = push_swap

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 11:48:11 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/22 12:22:18 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/23 14:06:38 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include "headers/quick_sort.h"
 #include "headers/selection_sort.h"
 #include "headers/stack.h"
+#include "headers/utils.h"
 #include "headers/utils_stack.h"
 #include <stdlib.h>
 
@@ -53,38 +54,22 @@ static int	select_algo(t_stacks *stacks, int flags[2])
 	int	error;
 
 	error = 1;
-	if (stacks->a->size < 2)
+	if (stacks->bench->disorder_metric > 0 && stacks->a->size > 1)
 	{
-		if (flags[1] == 1)
-			benchmark(stacks->bench);
-		return (1);
+		if (flags[0] == 1)
+			error = selection_sort(stacks);
+		else if (flags[0] == 2)
+			error = chunk_sort(stacks);
+		else if (flags[0] == 3)
+			error = quick_sort(stacks);
+		else
+			error = adaptive(stacks);
+		if (error == 0)
+			return (0);
 	}
-	if (flags[0] == 1)
-		error = selection_sort(stacks);
-	else if (flags[0] == 2)
-		error = chunk_sort(stacks);
-	else if (flags[0] == 3)
-		error = quick_sort(stacks);
-	else
-		error = adaptative(stacks);
-	if (error == 0)
-		return (0);
 	if (flags[1] == 1)
 		benchmark(stacks->bench);
 	return (1);
-}
-
-t_stacks	*inititalize_stacks(void)
-{
-	t_stacks	*stacks;
-
-	stacks = malloc(sizeof(t_stacks));
-	if (stacks == NULL)
-		return (NULL);
-	stacks->a = NULL;
-	stacks->b = NULL;
-	stacks->bench = NULL;
-	return (stacks);
 }
 
 int	main(int argc, char *argv[])
@@ -103,10 +88,10 @@ int	main(int argc, char *argv[])
 		return (end_main(&numbers, &stacks, 1));
 	if (!create_both_stacks(stacks, numbers))
 		return (end_main(&numbers, &stacks, 1));
-	stacks->bench = malloc(sizeof(t_bench));
+	stacks->bench = init_benchmark();
 	if (!stacks->bench)
 		return (end_main(&numbers, &stacks, 1));
-	stacks->bench->algo_type = flags[0];
+	stacks->bench->flags = flags;
 	delete_numbers(&numbers);
 	stacks->bench->disorder_metric = compute_disorder(stacks->a);
 	error = select_algo(stacks, flags);

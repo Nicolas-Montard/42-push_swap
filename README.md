@@ -1,4 +1,4 @@
-*This project has been created as part of the 42 curriculum by <nmontard>, <aslimani>.*
+*This project has been created as part of the 42 curriculum by nmontard, aslimani.*
 
 # Push_swap 
 
@@ -100,7 +100,20 @@ This strategy offers a good compromise between performance and implementation co
 
 ---
 
-...
+The complex strategy is based on a recursive quick sort adaptation with stack partitioning.
+
+The algorithm works by recursively dividing the data into smaller virtual sub-stacks and sorting them independently. It begins with an initial split: a pivot is selected using the median-of-three method (comparing the first, middle, and last elements of the current range), and all values smaller than or equal to the pivot are pushed from stack `a` to stack `b`, while values greater than the pivot remain in stack `a`.
+
+These two groups are then treated as virtual sub-stacks, tracked by passing their calculated sizes as parameters to the recursive functions. The algorithm then calls sort_a followed by sort_b, which are the core recursive functions. Each function splits its own sub-stack using a new pivot and recursively calls sort_a and then sort_b again, creating a tree-like structure of function calls.
+
+The order of these calls is essential: by always processing stack `a` before stack `b`, the algorithm ensures that larger elements are handled first and smaller elements last. This guarantees that the largest values settle at the bottom of the stack while the smallest values end up at the top, maintaining proper ordering throughout the process.
+
+Each recursive call has a base case: when a sub-stack size falls below 16 elements, a selection sort adapted to work within the constraints of the sub-stack is applied. This adapted selection sort uses rotations to isolate and sort the targeted portion of the stack efficiently.
+
+The recursion continues until all sub-stacks have been reduced to sizes smaller than 16 and sorted. Once all recursive calls complete, the entire stack is sorted in ascending order.
+This strategy was chosen because quick sort is highly efficient for large datasets and adapts well to the two-stack constraint. The median-of-three pivot selection helps avoid worst-case scenarios, and the hybrid approach (quick sort + selection sort for small ranges) optimizes performance.
+
+In the Push_swap operation model, this strategy achieves a time complexity of **O(n log n)**: at each recursion level, the algorithm performs O(n) Push_swap operations (rotations and pushes) to split the sub-stack, and the median-of-three pivot selection typically creates a recursion tree of logarithmic depth O(log n). The space complexity is **O(log n)** due to the recursive call stack depth in the average case. The threshold of 16 elements for switching to selection sort prevents worst-case recursion depth and ensures reliable performance. This makes it the most efficient algorithm implemented in this project for large dataset.
 
 #### Error Handling
 
@@ -113,6 +126,8 @@ The program prints Error\n to standard error in the following cases:
 
 ## Resources
 
+### Link
+
 https://en.wikipedia.org/wiki/Big_O_notation
 
 https://loud-technology.com/blog/notation-grand-o-performance-complexite-algorithmique/
@@ -122,3 +137,29 @@ https://info.blaisepascal.fr/nsi-complexite-dun-algorithme/
 https://www.geeksforgeeks.org/c/c-program-for-selection-sort/
 
 https://element84.com/software-engineering/chunks-and-chunkability-tyranny-of-the-chunk/
+
+https://www.geeksforgeeks.org/dsa/quick-sort-algorithm/
+
+https://en.wikipedia.org/wiki/Quicksort
+
+### AI
+
+AI tools were used exclusively to assist with README documentation and formatting.
+
+## Contributors
+
+### nmontard
+- Quick Sort algorithm implementation
+- Circular linked list stack structure
+- Input parsing and validation
+- Makefile configuration
+- Documentation: Complex Strategy section
+- Stack operations: `push`, `swap`
+
+### aslimani
+- Selection Sort algorithm implementation
+- Chunk_sort algorithm implementation
+- Benchmark system
+- Disorder metric calculation
+- Documentation: project overview, strategies (Simple & Medium), Instructions, error handling
+- Stack operations: `rotate`, `reverse_rotate`
