@@ -6,7 +6,7 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 13:39:10 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/22 13:29:07 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/22 15:32:30 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 
 static char	*return_selector_from_flag(t_bench *bench)
 {
-	if (bench->algo_type == 1)
+	if (bench->flags[0] == 1)
 		return ("Simple");
-	else if (bench->algo_type == 2)
+	else if (bench->flags[0] == 2)
 		return ("Medium");
-	else if (bench->algo_type == 3)
+	else if (bench->flags[0] == 3)
 		return ("Complex");
 	else
 		return ("Adaptive");
@@ -28,11 +28,11 @@ static char	*return_selector_from_flag(t_bench *bench)
 
 static char	*return_complexity_algo(t_bench *bench)
 {
-	if (bench->algo_type == 1)
+	if (bench->flags[0] == 1)
 		return ("O(n^2)");
-	else if (bench->algo_type == 2)
+	else if (bench->flags[0] == 2)
 		return ("O(n√n)");
-	else if (bench->algo_type == 3)
+	else if (bench->flags[0] == 3)
 		return ("O(n log n)");
 	else
 	{

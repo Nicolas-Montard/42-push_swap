@@ -6,7 +6,7 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 11:48:11 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/22 13:28:31 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/22 15:52:04 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,16 +60,19 @@ static int	select_algo(t_stacks *stacks, int flags[2])
 			benchmark(stacks->bench);
 		return (1);
 	}
-	if (flags[0] == 1)
-		error = selection_sort(stacks);
-	else if (flags[0] == 2)
-		error = chunk_sort(stacks);
-	else if (flags[0] == 3)
-		error = quick_sort(stacks);
-	else
-		error = adaptive(stacks);
-	if (error == 0)
-		return (0);
+	if (stacks->bench->disorder_metric > 0)
+	{
+		if (flags[0] == 1)
+			error = selection_sort(stacks);
+		else if (flags[0] == 2)
+			error = chunk_sort(stacks);
+		else if (flags[0] == 3)
+			error = quick_sort(stacks);
+		else
+			error = adaptive(stacks);
+		if (error == 0)
+			return (0);
+	}
 	if (flags[1] == 1)
 		benchmark(stacks->bench);
 	return (1);
@@ -94,7 +97,7 @@ int	main(int argc, char *argv[])
 	stacks->bench = init_benchmark();
 	if (!stacks->bench)
 		return (end_main(&numbers, &stacks, 1));
-	stacks->bench->algo_type = flags[0];
+	stacks->bench->flags = flags;
 	delete_numbers(&numbers);
 	stacks->bench->disorder_metric = compute_disorder(stacks->a);
 	error = select_algo(stacks, flags);

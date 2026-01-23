@@ -6,7 +6,7 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 13:10:22 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/22 13:13:17 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/22 15:39:55 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,6 @@ t_bench	*init_benchmark(void)
 	bench->op_rrr = 0;
 	bench->op_total = 0;
 	bench->disorder_metric = 0;
-	bench->algo_type = 0;
+	bench->flags = 0;
 	return (bench);
 }
