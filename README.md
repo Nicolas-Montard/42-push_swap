@@ -126,6 +126,8 @@ The program prints Error\n to standard error in the following cases:
 
 ## Resources
 
+### Link
+
 https://en.wikipedia.org/wiki/Big_O_notation
 
 https://loud-technology.com/blog/notation-grand-o-performance-complexite-algorithmique/
@@ -139,3 +141,25 @@ https://element84.com/software-engineering/chunks-and-chunkability-tyranny-of-th
 https://www.geeksforgeeks.org/dsa/quick-sort-algorithm/
 
 https://en.wikipedia.org/wiki/Quicksort
+
+### AI
+
+AI tools were used exclusively to assist with README documentation and formatting.
+
+## Contributors
+
+### nmontard
+- Quick Sort algorithm implementation
+- Circular linked list stack structure
+- Input parsing and validation
+- Makefile configuration
+- Documentation: Complex Strategy section
+- Stack operations: `push`, `swap`
+
+### aslimani
+- Selection Sort algorithm implementation
+- Chunk_sort algorithm implementation
+- Benchmark system
+- Disorder metric calculation
+- Documentation: project overview, strategies (Simple & Medium), Instruction, error handling
+- Stack operations: `rotate`, `reverse_rotate`
