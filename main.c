@@ -6,7 +6,7 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/18 11:48:11 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/22 15:52:04 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/23 14:06:38 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,7 @@ static int	select_algo(t_stacks *stacks, int flags[2])
 	int	error;
 
 	error = 1;
-	if (stacks->a->size < 2)
-	{
-		if (flags[1] == 1)
-			benchmark(stacks->bench);
-		return (1);
-	}
-	if (stacks->bench->disorder_metric > 0)
+	if (stacks->bench->disorder_metric > 0 && stacks->a->size > 1)
 	{
 		if (flags[0] == 1)
 			error = selection_sort(stacks);
