@@ -161,5 +161,5 @@ AI tools were used exclusively to assist with README documentation and formattin
 - Chunk_sort algorithm implementation
 - Benchmark system
 - Disorder metric calculation
-- Documentation: project overview, strategies (Simple & Medium), Instruction, error handling
+- Documentation: project overview, strategies (Simple & Medium), Instructions, error handling
 - Stack operations: `rotate`, `reverse_rotate`
