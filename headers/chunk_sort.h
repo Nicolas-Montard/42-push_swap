@@ -6,7 +6,7 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 16:07:21 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/23 16:24:48 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/23 16:46:24 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,5 @@ void	loop_reverse_rotate(t_stacks *stacks, int index_chunk, char letter);
 int		push_chunk_to_b(t_stacks *stacks, int total_chk, int chk_size);
 int		push_to_stacka_b(t_stacks *stacks, int min, int max);
 int		find_closest_value_chunk(t_stack *a, int min, int max);
-int		find_max_node(t_stack *stack);
 
 #endif

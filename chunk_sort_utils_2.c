@@ -6,12 +6,13 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 15:57:48 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/23 16:24:17 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/23 16:49:05 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "headers/chunk_sort.h"
 #include "headers/disorder_metric.h"
+#include "headers/utils_algo.h"
 
 int	push_chunk_to_b(t_stacks *stacks, int total_chk, int chk_size)
 {
