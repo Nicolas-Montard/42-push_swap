@@ -6,11 +6,12 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 15:00:07 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/19 17:31:57 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/23 16:33:41 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "headers/selection_sort.h"
+#include "headers/utils_algo.h"
 
 static	void	loop_rotate(t_stacks *stack, int index)
 {
@@ -36,34 +37,31 @@ static	void	loop_reverse_rotate(t_stacks *stack, int index)
 	}
 }
 
-static	int	find_min_node(t_stack *a)
+static int	less_action(t_stacks *stack)
 {
 	t_node	*i;
-	t_node	*min_node;
-	int		index_i;
-	int		min_index;
+	int		index;
+	int		index_max;
 
-	i = a->head;
-	min_node = a->head;
-	index_i = 0;
-	min_index = 0;
-	while (index_i < a->size)
+	index = 0;
+	i = stack->a->head->next;
+	index_max = find_max_node(stack->a) + 1;
+	while (index < index_max && index_max != 0)
 	{
-		if (i->value < min_node->value)
-		{
-			min_node = i;
-			min_index = index_i;
-		}
-		i = i->next;
-		index_i++;
+		ra(stack);
+		index++;
 	}
-	return (min_index);
+	if (stack->a->head->value > stack->a->head->next->value)
+		sa(stack);
+	return (1);
 }
 
 int	selection_sort(t_stacks *stacks)
 {
 	int	index_min;
 
+	if (stacks->a->size == 3)
+		return (less_action(stacks));
 	while (stacks->a->size > 0)
 	{
 		index_min = find_min_node(stacks->a);
