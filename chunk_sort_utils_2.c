@@ -6,11 +6,12 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 15:57:48 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/19 17:28:09 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/23 16:24:17 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "headers/chunk_sort.h"
+#include "headers/disorder_metric.h"
 
 int	push_chunk_to_b(t_stacks *stacks, int total_chk, int chk_size)
 {
@@ -55,3 +56,22 @@ int	find_closest_value_chunk(t_stack *a, int min, int max)
 	}
 	return (index_chunk);
 }
+
+void	less_action(t_stacks *stack)
+{
+	t_node	*i;
+	int		index;
+	int		index_max;
+
+	index = 0;
+	i = stack->a->head->next;
+	index_max = find_max_node(stack->a) + 1;
+	while (index < index_max && index_max != 0)
+	{
+		ra(stack);
+		index++;
+	}
+	if (stack->a->head->value > stack->a->head->next->value)
+		sa(stack);
+}
+

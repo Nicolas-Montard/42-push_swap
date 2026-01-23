@@ -6,7 +6,7 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 15:57:26 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/19 17:27:53 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/23 16:37:16 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	count_chunk_size(t_stack *a)
 	chunk_size = 1;
 	while (chunk_size * chunk_size < a->size)
 		chunk_size++;
+	if (chunk_size < 3)
+		chunk_size = 3;
 	return (chunk_size);
 }
 
