@@ -6,11 +6,11 @@
 /*   By: nmontard <nmontard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 13:10:22 by nmontard          #+#    #+#             */
-/*   Updated: 2026/01/22 15:39:55 by nmontard         ###   ########.fr       */
+/*   Updated: 2026/01/23 16:53:04 by nmontard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.h"
+#include "headers/utils.h"
 #include <stdlib.h>
 
 t_stacks	*inititalize_stacks(void)
