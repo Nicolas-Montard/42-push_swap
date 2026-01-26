@@ -6,7 +6,7 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 15:57:48 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/23 16:49:05 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/26 10:33:11 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,3 @@ void	less_action(t_stacks *stack)
 	if (stack->a->head->value > stack->a->head->next->value)
 		sa(stack);
 }
-
