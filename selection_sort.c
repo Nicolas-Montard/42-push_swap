@@ -6,7 +6,7 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 15:00:07 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/23 16:33:41 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/26 10:22:55 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static int	less_action(t_stacks *stack)
 	index = 0;
 	i = stack->a->head->next;
 	index_max = find_max_node(stack->a) + 1;
-	while (index < index_max && index_max != 0)
+	while (index < index_max && index_max != 3)
 	{
 		ra(stack);
 		index++;
