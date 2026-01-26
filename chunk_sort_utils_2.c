@@ -6,7 +6,7 @@
 /*   By: aslimani <aslimani@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 15:57:48 by aslimani          #+#    #+#             */
-/*   Updated: 2026/01/26 10:33:11 by aslimani         ###   ########.fr       */
+/*   Updated: 2026/01/26 10:55:06 by aslimani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,22 +56,4 @@ int	find_closest_value_chunk(t_stack *a, int min, int max)
 		index++;
 	}
 	return (index_chunk);
-}
-
-void	less_action(t_stacks *stack)
-{
-	t_node	*i;
-	int		index;
-	int		index_max;
-
-	index = 0;
-	i = stack->a->head->next;
-	index_max = find_max_node(stack->a) + 1;
-	while (index < index_max && index_max != 0)
-	{
-		ra(stack);
-		index++;
-	}
-	if (stack->a->head->value > stack->a->head->next->value)
-		sa(stack);
 }
